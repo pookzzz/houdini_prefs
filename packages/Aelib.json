@@ -1,7 +1,7 @@
 {
 	"env": [
 		{
-			"AELIB": "C:/Users/wanz/Documents/workspace/houdini/plugins/Aelib"
+			"AELIB": "/Users/bytedance/workspace/houdiniPlugins/Aelib"
 		},
 		{
 			"AOTL": "$AELIB/otls"

@@ -5,8 +5,15 @@
  Note, that two definitions of the same element are not allowed in
  a single file. -->
 
-  <shelfSetEdit name="shelf_set_2" fileLocation="/opt/houdini20.5.332/houdini/toolbar/ShelfDefinitions.master_shelf">
-    <addMemberToolshelf name="labs_toolset" inPosition="14"/>
-    <addMemberToolshelf name="qLib" inPosition="15"/>
-  </shelfSetEdit>
+  <shelfSet name="shelf_set_3" label="New Shelf Set">
+    <memberToolshelf name="labs_toolset"/>
+    <memberToolshelf name="qLib"/>
+    <memberToolshelf name="qLib-TOPs"/>
+    <memberToolshelf name="houdiniengine"/>
+    <memberToolshelf name="aelib_shelf"/>
+  </shelfSet>
+
+  <toolshelf name="shelf_1" label="New Shelf"/>
+
+  <shelfSetEdit name="shelf_set_2" fileLocation="/opt/houdini20.5.332/houdini/toolbar/ShelfDefinitions.master_shelf"/>
 </shelfDocument>
