@@ -1,19 +1,16 @@
 {
     "path": "$HPro",
-    "env": 
-    [
-          {
-              "HPro": "C:/Users/Wanz/Documents/workspace/houdini/plugins/HOUDINI_HPro"
-          },
-          {
-              "PATH": 
-              {
-                  "method": "prepend",
-                  "value": 
-                  [
-                      "$HPro/bin"
-                  ]
-              }
-          }
-      ]
-  }
+    "env": [
+        {
+            "HPro": "D:/Workspace/repo/houdiniPlugins/HOUDINI_HPro"
+        },
+        {
+            "PATH": {
+                "method": "prepend",
+                "value": [
+                    "$HPro/bin"
+                ]
+            }
+        }
+    ]
+}

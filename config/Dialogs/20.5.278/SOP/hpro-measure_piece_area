@@ -1,0 +1,279 @@
+// Magic: b0a60519
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Nov 21 14:39:32 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+info.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    info.label = PARM_LABEL("Info", "info") WIDTH(1.5);
+    PARM_FIELD(string, "info") VALUE(info.val) 
+	LABELREF(info.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+detect_piece.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    detect_piece.label = PARM_LABEL_SIMPLE("Detect Piece", "detect_piece") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    detect_piece.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+piece_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    piece_attrib.label = PARM_LABEL("Prim Piece Attr", "piece_attrib") WIDTH(1.5);
+    PARM_FIELD(string, "piece_attrib") VALUE(piece_attrib.val) 
+	LABELREF(piece_attrib.label) HSTRETCH;
+
+    piece_attrib.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+area_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    area_name.label = PARM_LABEL("Area Name", "area_name") WIDTH(1.5);
+    PARM_FIELD(string, "area_name") VALUE(area_name.val) 
+	LABELREF(area_name.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+enable_biggest_area_group.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+enable_biggest_area_group.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+enable_biggest_area_group.gad = PARM_BUTTON("enable_biggest_area_group", "") toggle VALUE(enable_biggest_area_group.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+area_greater_than.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ area_greater_than.label = PARM_LABEL("Area >= (%)", "area_greater_than") WIDTH(1.32);
+ PARM(float, 1, "area_greater_than", none, none) RANGE(0,100)
+	LOCK_RANGE LABELREF(area_greater_than.label) HSTRETCH;
+
+  {  }
+}
+}	
+}	// Template join.bot
+
+biggest_group_name.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+biggest_group_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    biggest_group_name.label = PARM_LABEL("Group Name", "biggest_group_name") WIDTH(1.5);
+    PARM_FIELD(string, "biggest_group_name") VALUE(biggest_group_name.val) 
+	LABELREF(biggest_group_name.label) HSTRETCH;
+
+    {  }
+}
+
+biggest_grp_mergeop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    biggest_grp_mergeop.menu;
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+enable_smallest_group.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+enable_smallest_group.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+enable_smallest_group.gad = PARM_BUTTON("enable_smallest_group", "") toggle VALUE(enable_smallest_group.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+area_less_than.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ area_less_than.label = PARM_LABEL("Area <= (%)", "area_less_than") WIDTH(1.32);
+ PARM(float, 1, "area_less_than", none, none) RANGE(0,100)
+	LOCK_RANGE LABELREF(area_less_than.label) HSTRETCH;
+
+  {  }
+}
+}	
+}	// Template join.bot
+
+smallest_group_name.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+smallest_group_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    smallest_group_name.label = PARM_LABEL("Group Name", "smallest_group_name") WIDTH(1.5);
+    PARM_FIELD(string, "smallest_group_name") VALUE(smallest_group_name.val) 
+	LABELREF(smallest_group_name.label) HSTRETCH;
+
+    {  }
+}
+
+smallest_grp_mergeop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    smallest_grp_mergeop.menu;
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+enable_promote.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("enable_promote", "Enable") toggle VALUE(enable_promote.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+max_area_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    max_area_name.label = PARM_LABEL("Max Name", "max_area_name") WIDTH(1.5);
+    PARM_FIELD(string, "max_area_name") VALUE(max_area_name.val) 
+	LABELREF(max_area_name.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+min_area_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    min_area_name.label = PARM_LABEL("Min Name", "min_area_name") WIDTH(1.5);
+    PARM_FIELD(string, "min_area_name") VALUE(min_area_name.val) 
+	LABELREF(min_area_name.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+folder1.gad = 
+
+GROUP simple "Promote Min | Max Value to Detail Attr" flat 
+{ 
+    VALUE(folder1.gad.val) LAYOUT(vertical) HSTRETCH 
+	    enable_promote.gad;		
+	    max_area_name.gad;		
+	    min_area_name.gad;		
+} 
+
+folder0.gad = 
+
+GROUP simple "Group" flat 
+{ 
+    VALUE(folder0.gad.val) LAYOUT(vertical) HSTRETCH 
+	    enable_biggest_area_group.row.join;		
+	    biggest_group_name.row.join;		
+	    enable_smallest_group.row.join;		
+	    smallest_group_name.row.join;		
+} 
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    info.gad; 
+    detect_piece.gad; 
+    piece_attrib.gad; 
+    sepparm.gad; 
+    area_name.gad; 
+    folder0.gad; 
+    folder1.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

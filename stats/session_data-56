@@ -1,0 +1,54 @@
+{
+	"stats":{
+		"start_time":1736319326,
+		"end_time":1736324934,
+		"idle_time":4858,
+		"log_id":"0xEF768D3C-0x000C727C-0x677E2162-0x000004BE",
+		"persistent_stats":{
+			"colors_scheme":"Houdini Dark"
+		},
+		"flags":[
+		],
+		"counts":{
+			"tools/network/Object|object_geo":1,
+			"tools/network/Sop|sop_uvproject":1,
+			"tools/network/Sop|sop_xform":1,
+			"tools/network/Driver|(custom_tool)":1,
+			"tools/viewer/Sop|sop_split":1,
+			"tools/network/Sop|sop_merge":1,
+			"hotkey/h.pane.gview.model.growselection":1,
+			"hotkey/h.undo":2,
+			"tools/network/Sop|(custom_tool)":6,
+			"tools/network/Sop|sop_attribdelete":1,
+			"tools/network/Sop|sop_uvtransform::2.0":1,
+			"hotkey/h.pane.gview.state.view.frame_selection":3,
+			"hotkey/h.pane.gview.state.view.home_selection":1,
+			"tools/network/Sop|sop_null":1
+		},
+		"logs":{
+		},
+		"sums_and_counts":{
+		},
+		"strings":{
+		},
+		"checksum":"9f745a2b71fc07ed4fc12589d67583aa"
+	},
+	"machine_config":{
+		"houdini_major_version":"20",
+		"houdini_minor_version":"5",
+		"houdini_build_version":"278",
+		"application_name":"houdinifx",
+		"license_category":"Commercial",
+		"platform":"windows-x86_64-cl19.37",
+		"operating_system":"Microsoft Windows 11 \u4e13\u4e1a\u7248 x64",
+		"number_of_processors":20,
+		"system_memory":"63.68 GB",
+		"graphics_card":"NVIDIA GeForce RTX 3070/PCIe/SSE2",
+		"graphics_card_version":"4.6.0 NVIDIA 555.85",
+		"mac_address_hash":"14bb03d6e77b57e06a47977b4ee02107",
+		"user_config_version":20140523,
+		"system_resolution":"3840x2160",
+		"cpu_info":"12th Gen Intel(R) Core(TM) i7-12700",
+		"config_hash":"935a8934b5282548dea8ef04ceb43410"
+	}
+}

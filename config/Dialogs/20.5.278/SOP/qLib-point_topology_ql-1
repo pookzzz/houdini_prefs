@@ -1,0 +1,1640 @@
+// Magic: 7ce75239
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Nov 28 11:24:01 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+op_label.gad = NULL { }
+
+vismode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    vismode.label = PARM_LABEL_SIMPLE("Visualization", "vismode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vismode.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+display_gamma.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+display_gamma.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ display_gamma.label = PARM_LABEL("Display Gamma", "display_gamma") WIDTH(1.5);
+ PARM(float, 1, "display_gamma", none, none) RANGE(0.01,4)
+	 LABELREF(display_gamma.label) HSTRETCH;
+
+  {  }
+}
+
+display_gamma_presets.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+    {  }
+
+    display_gamma_presets.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+}
+}	// Template join.bot
+
+baseColor.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+baseColor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+    {  }
+
+    baseColor.label = PARM_LABEL("Base Color", "baseColor") WIDTH(1.5);
+    PARM(float, 3, "baseColor", none, COLOR, "R,G,B") 
+	LABELREF(baseColor.label) HSTRETCH;
+
+    {  }
+}
+
+do_baseColor.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("do_baseColor", "set") toggle VALUE(do_baseColor.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+do_coincidents.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("do_coincidents", "Count Coincident Points") toggle VALUE(do_coincidents.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+coi_group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    coi_group.label = PARM_LABEL("Point Group", "coi_group") WIDTH(1.5);
+    PARM_FIELD(string, "coi_group") VALUE(coi_group.val) 
+	LABELREF(coi_group.label) HSTRETCH;
+
+    coi_group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+coi_radius.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coi_radius.label = PARM_LABEL("Search Radius", "coi_radius") WIDTH(1.5);
+ PARM(float, 1, "coi_radius", none, none) RANGE(0,1)
+	 LABELREF(coi_radius.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+coi_maxpoints.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coi_maxpoints.label = PARM_LABEL("Max Points", "coi_maxpoints") WIDTH(1.5);
+ PARM(integer, 1, "coi_maxpoints", none, none) RANGE(0,9)
+	 LABELREF(coi_maxpoints.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+coi_do_attrib.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+coi_do_attrib.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+coi_do_attrib.gad = PARM_BUTTON("coi_do_attrib", "") toggle VALUE(coi_do_attrib.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+coi_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    coi_attrib.label = PARM_LABEL("Attribute", "coi_attrib") WIDTH(1.32);
+    PARM_FIELD(string, "coi_attrib") VALUE(coi_attrib.val) 
+	LABELREF(coi_attrib.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+coi_localvar.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    coi_localvar.label = PARM_LABEL("Variable", "coi_localvar") ;
+    PARM_FIELD(string, "coi_localvar") VALUE(coi_localvar.val) 
+	LABELREF(coi_localvar.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+coi_do_group.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+coi_do_group.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+coi_do_group.gad = PARM_BUTTON("coi_do_group", "") toggle VALUE(coi_do_group.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+coi_groupname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    coi_groupname.label = PARM_LABEL("Group", "coi_groupname") WIDTH(1.32);
+    PARM_FIELD(string, "coi_groupname") VALUE(coi_groupname.val) 
+	LABELREF(coi_groupname.label) HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+coi_compare_mode.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+coi_compare_mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    coi_compare_mode.menu;
+
+    {  }
+
+    {  }
+}
+
+coi_grp_num.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ PARM(integer, 1, "coi_grp_num", none, none) RANGE(0,10)
+	 HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+vis_coincidents.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+vis_coincidents.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+vis_coincidents.gad = PARM_BUTTON("vis_coincidents", "") toggle VALUE(vis_coincidents.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vis_coincidents_range.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   vis_coincidents_range.label = PARM_LABEL("Value Range", "vis_coincidents_range") WIDTH(1.32);
+   PARM(integer, 2, "vis_coincidents_range", none, none, "X,Y")
+	RANGE(1,9)  LABELREF(vis_coincidents_range.label)
+	HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+
+vis_coincident_colors.si_rampedit = COLOR_RAMP VALUE(vis_coincident_colors.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+vis_coincident_colors.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	vis_coincident_colors.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(vis_coincident_colors.pointno.val) HSTRETCH;
+    }
+}
+
+vis_coincident_colors.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(vis_coincident_colors.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(vis_coincident_colors.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    vis_coincident_colors.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+	VALUE(vis_coincident_colors.toggle.val)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+vis_coincident_colors.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    vis_coincident_colors.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	vis_coincident_colors.buttons.gad VSTRETCH;
+
+	vis_coincident_colors.si_rampedit HSTRETCH;
+    }
+}
+
+vis_coincident_colors.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Colors", "vis_coincident_colors");
+
+	{ HSTRETCH }
+	vis_coincident_colors.interp
+	    = ACTION_MENU_ICONBUTTON vis_coincident_colors.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(vis_coincident_colors.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(vis_coincident_colors.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	vis_coincident_colors.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	vis_coincident_colors.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(vis_coincident_colors.hideparms.val) HSTRETCH
+	    vis_coincident_colors.multiramp;
+	    {}
+	}
+    }
+}
+
+do_neighbours.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("do_neighbours", "Count Neighbours") toggle VALUE(do_neighbours.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+nbr_group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    nbr_group.label = PARM_LABEL("Point Group", "nbr_group") WIDTH(1.5);
+    PARM_FIELD(string, "nbr_group") VALUE(nbr_group.val) 
+	LABELREF(nbr_group.label) HSTRETCH;
+
+    nbr_group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+nbr_do_attrib.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+nbr_do_attrib.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+nbr_do_attrib.gad = PARM_BUTTON("nbr_do_attrib", "") toggle VALUE(nbr_do_attrib.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+nbr_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    nbr_attrib.label = PARM_LABEL("Attribute", "nbr_attrib") WIDTH(1.32);
+    PARM_FIELD(string, "nbr_attrib") VALUE(nbr_attrib.val) 
+	LABELREF(nbr_attrib.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+nbr_localvar.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    nbr_localvar.label = PARM_LABEL("Variable", "nbr_localvar") ;
+    PARM_FIELD(string, "nbr_localvar") VALUE(nbr_localvar.val) 
+	LABELREF(nbr_localvar.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+nbr_do_group.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+nbr_do_group.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+nbr_do_group.gad = PARM_BUTTON("nbr_do_group", "") toggle VALUE(nbr_do_group.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+nbr_groupname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    nbr_groupname.label = PARM_LABEL("Group", "nbr_groupname") WIDTH(1.32);
+    PARM_FIELD(string, "nbr_groupname") VALUE(nbr_groupname.val) 
+	LABELREF(nbr_groupname.label) HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+nbr_compare_mode.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+nbr_compare_mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    nbr_compare_mode.menu;
+
+    {  }
+
+    {  }
+}
+
+nbr_grp_num.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ PARM(integer, 1, "nbr_grp_num", none, none) RANGE(0,10)
+	 HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+vis_neighbours.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+vis_neighbours.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+vis_neighbours.gad = PARM_BUTTON("vis_neighbours", "") toggle VALUE(vis_neighbours.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vis_neighbours_range.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   vis_neighbours_range.label = PARM_LABEL("Value Range", "vis_neighbours_range") WIDTH(1.32);
+   PARM(integer, 2, "vis_neighbours_range", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(vis_neighbours_range.label)
+	HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+
+vis_neighbour_colors.si_rampedit = COLOR_RAMP VALUE(vis_neighbour_colors.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+vis_neighbour_colors.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	vis_neighbour_colors.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(vis_neighbour_colors.pointno.val) HSTRETCH;
+    }
+}
+
+vis_neighbour_colors.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(vis_neighbour_colors.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(vis_neighbour_colors.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    vis_neighbour_colors.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+	VALUE(vis_neighbour_colors.toggle.val)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+vis_neighbour_colors.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    vis_neighbour_colors.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	vis_neighbour_colors.buttons.gad VSTRETCH;
+
+	vis_neighbour_colors.si_rampedit HSTRETCH;
+    }
+}
+
+vis_neighbour_colors.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Colors", "vis_neighbour_colors");
+
+	{ HSTRETCH }
+	vis_neighbour_colors.interp
+	    = ACTION_MENU_ICONBUTTON vis_neighbour_colors.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(vis_neighbour_colors.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(vis_neighbour_colors.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	vis_neighbour_colors.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	vis_neighbour_colors.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(vis_neighbour_colors.hideparms.val) HSTRETCH
+	    vis_neighbour_colors.multiramp;
+	    {}
+	}
+    }
+}
+
+do_borders.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("do_borders", "Detect Border Points") toggle VALUE(do_borders.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+brd_do_attrib.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+brd_do_attrib.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+brd_do_attrib.gad = PARM_BUTTON("brd_do_attrib", "") toggle VALUE(brd_do_attrib.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+brd_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    brd_attrib.label = PARM_LABEL("Attribute", "brd_attrib") WIDTH(1.32);
+    PARM_FIELD(string, "brd_attrib") VALUE(brd_attrib.val) 
+	LABELREF(brd_attrib.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+brd_localvar.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    brd_localvar.label = PARM_LABEL("Variable", "brd_localvar") ;
+    PARM_FIELD(string, "brd_localvar") VALUE(brd_localvar.val) 
+	LABELREF(brd_localvar.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+
+brd_value.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   brd_value.label = PARM_LABEL("Values (Bord. / In.)", "brd_value") WIDTH(1.5);
+   PARM(float, 2, "brd_value", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(brd_value.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+brd_do_group_b.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+brd_do_group_b.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+brd_do_group_b.gad = PARM_BUTTON("brd_do_group_b", "") toggle VALUE(brd_do_group_b.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+brd_group_b.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    brd_group_b.label = PARM_LABEL("Border Group", "brd_group_b") WIDTH(1.32);
+    PARM_FIELD(string, "brd_group_b") VALUE(brd_group_b.val) 
+	LABELREF(brd_group_b.label) HSTRETCH;
+
+    brd_group_b.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+brd_do_group_i.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+brd_do_group_i.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+brd_do_group_i.gad = PARM_BUTTON("brd_do_group_i", "") toggle VALUE(brd_do_group_i.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+brd_group_i.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    brd_group_i.label = PARM_LABEL("Inside Group", "brd_group_i") WIDTH(1.32);
+    PARM_FIELD(string, "brd_group_i") VALUE(brd_group_i.val) 
+	LABELREF(brd_group_i.label) HSTRETCH;
+
+    brd_group_i.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+vis_borders.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+vis_borders.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+vis_borders.gad = PARM_BUTTON("vis_borders", "") toggle VALUE(vis_borders.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vis_borders_range.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   vis_borders_range.label = PARM_LABEL("Value Range", "vis_borders_range") WIDTH(1.32);
+   PARM(integer, 2, "vis_borders_range", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(vis_borders_range.label)
+	HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+
+brd_visu_colors.si_rampedit = COLOR_RAMP VALUE(brd_visu_colors.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+brd_visu_colors.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	brd_visu_colors.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(brd_visu_colors.pointno.val) HSTRETCH;
+    }
+}
+
+brd_visu_colors.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(brd_visu_colors.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(brd_visu_colors.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    brd_visu_colors.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+	VALUE(brd_visu_colors.toggle.val)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+brd_visu_colors.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    brd_visu_colors.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	brd_visu_colors.buttons.gad VSTRETCH;
+
+	brd_visu_colors.si_rampedit HSTRETCH;
+    }
+}
+
+brd_visu_colors.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Colors", "brd_visu_colors");
+
+	{ HSTRETCH }
+	brd_visu_colors.interp
+	    = ACTION_MENU_ICONBUTTON brd_visu_colors.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(brd_visu_colors.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(brd_visu_colors.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	brd_visu_colors.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	brd_visu_colors.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(brd_visu_colors.hideparms.val) HSTRETCH
+	    brd_visu_colors.multiramp;
+	    {}
+	}
+    }
+}
+do_ptindex.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_ptindex.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_ptindex.gad = PARM_BUTTON("do_ptindex", "") toggle VALUE(do_ptindex.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+ptindex_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    ptindex_name.label = PARM_LABEL("Point Index", "ptindex_name") WIDTH(1.32);
+    PARM_FIELD(string, "ptindex_name") VALUE(ptindex_name.val) 
+	LABELREF(ptindex_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+ptindex_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    ptindex_varname.label = PARM_LABEL("Variable", "ptindex_varname") ;
+    PARM_FIELD(string, "ptindex_varname") VALUE(ptindex_varname.val) 
+	LABELREF(ptindex_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_ptpercent.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_ptpercent.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_ptpercent.gad = PARM_BUTTON("do_ptpercent", "") toggle VALUE(do_ptpercent.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+ptpercent_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    ptpercent_name.label = PARM_LABEL("Point Idx [0..1]", "ptpercent_name") WIDTH(1.32);
+    PARM_FIELD(string, "ptpercent_name") VALUE(ptpercent_name.val) 
+	LABELREF(ptpercent_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+ptpercent_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    ptpercent_varname.label = PARM_LABEL("Variable", "ptpercent_varname") ;
+    PARM_FIELD(string, "ptpercent_varname") VALUE(ptpercent_varname.val) 
+	LABELREF(ptpercent_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_vtxi.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_vtxi.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_vtxi.gad = PARM_BUTTON("do_vtxi", "") toggle VALUE(do_vtxi.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vtxi_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxi_name.label = PARM_LABEL("Vertex Index", "vtxi_name") WIDTH(1.32);
+    PARM_FIELD(string, "vtxi_name") VALUE(vtxi_name.val) 
+	LABELREF(vtxi_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+vtxi_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxi_varname.label = PARM_LABEL("Variable", "vtxi_varname") ;
+    PARM_FIELD(string, "vtxi_varname") VALUE(vtxi_varname.val) 
+	LABELREF(vtxi_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_vtxp.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_vtxp.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_vtxp.gad = PARM_BUTTON("do_vtxp", "") toggle VALUE(do_vtxp.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vtxp_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxp_name.label = PARM_LABEL("Vertex Idx [0..1]", "vtxp_name") WIDTH(1.32);
+    PARM_FIELD(string, "vtxp_name") VALUE(vtxp_name.val) 
+	LABELREF(vtxp_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+vtxp_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxp_varname.label = PARM_LABEL("Variable", "vtxp_varname") ;
+    PARM_FIELD(string, "vtxp_varname") VALUE(vtxp_varname.val) 
+	LABELREF(vtxp_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_vtxs.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_vtxs.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_vtxs.gad = PARM_BUTTON("do_vtxs", "") toggle VALUE(do_vtxs.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vtxs_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxs_name.label = PARM_LABEL("Vertices on Prim", "vtxs_name") WIDTH(1.32);
+    PARM_FIELD(string, "vtxs_name") VALUE(vtxs_name.val) 
+	LABELREF(vtxs_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+vtxs_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vtxs_varname.label = PARM_LABEL("Variable", "vtxs_varname") ;
+    PARM_FIELD(string, "vtxs_varname") VALUE(vtxs_varname.val) 
+	LABELREF(vtxs_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_primi.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_primi.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_primi.gad = PARM_BUTTON("do_primi", "") toggle VALUE(do_primi.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+primi_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    primi_name.label = PARM_LABEL("Primitive Index", "primi_name") WIDTH(1.32);
+    PARM_FIELD(string, "primi_name") VALUE(primi_name.val) 
+	LABELREF(primi_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+primi_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    primi_varname.label = PARM_LABEL("Variable", "primi_varname") ;
+    PARM_FIELD(string, "primi_varname") VALUE(primi_varname.val) 
+	LABELREF(primi_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_lifep.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_lifep.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_lifep.gad = PARM_BUTTON("do_lifep", "") toggle VALUE(do_lifep.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+lifep_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lifep_name.label = PARM_LABEL("Age [0..1]", "lifep_name") WIDTH(1.32);
+    PARM_FIELD(string, "lifep_name") VALUE(lifep_name.val) 
+	LABELREF(lifep_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+lifep_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lifep_varname.label = PARM_LABEL("Variable", "lifep_varname") ;
+    PARM_FIELD(string, "lifep_varname") VALUE(lifep_varname.val) 
+	LABELREF(lifep_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_age.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_age.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_age.gad = PARM_BUTTON("do_age", "") toggle VALUE(do_age.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+age_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    age_name.label = PARM_LABEL("Current Age", "age_name") WIDTH(1.32);
+    PARM_FIELD(string, "age_name") VALUE(age_name.val) 
+	LABELREF(age_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+age_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    age_varname.label = PARM_LABEL("Variable", "age_varname") ;
+    PARM_FIELD(string, "age_varname") VALUE(age_varname.val) 
+	LABELREF(age_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_lifespan.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_lifespan.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_lifespan.gad = PARM_BUTTON("do_lifespan", "") toggle VALUE(do_lifespan.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+lifespan_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lifespan_name.label = PARM_LABEL("Life Span", "lifespan_name") WIDTH(1.32);
+    PARM_FIELD(string, "lifespan_name") VALUE(lifespan_name.val) 
+	LABELREF(lifespan_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+lifespan_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lifespan_varname.label = PARM_LABEL("Variable", "lifespan_varname") ;
+    PARM_FIELD(string, "lifespan_varname") VALUE(lifespan_varname.val) 
+	LABELREF(lifespan_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_vlength.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_vlength.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_vlength.gad = PARM_BUTTON("do_vlength", "") toggle VALUE(do_vlength.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+vlength_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vlength_name.label = PARM_LABEL("Velocity Length", "vlength_name") WIDTH(1.32);
+    PARM_FIELD(string, "vlength_name") VALUE(vlength_name.val) 
+	LABELREF(vlength_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+vlength_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    vlength_varname.label = PARM_LABEL("Variable", "vlength_varname") ;
+    PARM_FIELD(string, "vlength_varname") VALUE(vlength_varname.val) 
+	LABELREF(vlength_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_lgenn.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_lgenn.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_lgenn.gad = PARM_BUTTON("do_lgenn", "") toggle VALUE(do_lgenn.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+lgenn_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lgenn_name.label = PARM_LABEL("Generation [0..1]", "lgenn_name") WIDTH(1.32);
+    PARM_FIELD(string, "lgenn_name") VALUE(lgenn_name.val) 
+	LABELREF(lgenn_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+lgenn_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lgenn_varname.label = PARM_LABEL("Variable", "lgenn_varname") ;
+    PARM_FIELD(string, "lgenn_varname") VALUE(lgenn_varname.val) 
+	LABELREF(lgenn_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_lagen.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_lagen.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_lagen.gad = PARM_BUTTON("do_lagen", "") toggle VALUE(do_lagen.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+lagen_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lagen_name.label = PARM_LABEL("Age [0..1]", "lagen_name") WIDTH(1.32);
+    PARM_FIELD(string, "lagen_name") VALUE(lagen_name.val) 
+	LABELREF(lagen_name.label) HSTRETCH;
+
+    {  }
+}
+}	
+
+lagen_varname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    lagen_varname.label = PARM_LABEL("Variable", "lagen_varname") ;
+    PARM_FIELD(string, "lagen_varname") VALUE(lagen_varname.val) 
+	LABELREF(lagen_varname.label) HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+do_delattribs.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+do_delattribs.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+do_delattribs.gad = PARM_BUTTON("do_delattribs", "") toggle VALUE(do_delattribs.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+delattribs.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    delattribs.label = PARM_LABEL("Remove Attribs", "delattribs") WIDTH(1.32);
+    PARM_FIELD(string, "delattribs") VALUE(delattribs.val) 
+	LABELREF(delattribs.label) HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+guide.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+guide.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+guide.gad = PARM_BUTTON("guide", "") toggle VALUE(guide.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+guide_group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    guide_group.label = PARM_LABEL("Highlight Group", "guide_group") WIDTH(1.32);
+    PARM_FIELD(string, "guide_group") VALUE(guide_group.val) 
+	LABELREF(guide_group.label) HSTRETCH;
+
+    guide_group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    {  }
+}
+}	
+
+guide_group_presets.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    guide_group_presets.label = PARM_LABEL_SIMPLE("...", "guide_group_presets") ;
+    { WIDTH(0.09) }
+
+    guide_group_presets.menu;
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder0.gad"
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Geometry"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_ptindex.row.join;		
+	    do_ptpercent.row.join;		
+	    do_vtxi.row.join;		
+	    do_vtxp.row.join;		
+	    do_vtxs.row.join;		
+	    do_primi.row.join;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Particles"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_lifep.row.join;		
+	    do_age.row.join;		
+	    do_lifespan.row.join;		
+	    do_vlength.row.join;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "L-Systems"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_lgenn.row.join;		
+	    do_lagen.row.join;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+folder5.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder5.gad"
+    { 
+	VALUE(folder5.gad.val) STRETCH(1,0)
+
+	TAB "Visualization"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    vis_borders.row.join;		
+	    brd_visu_colors.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+folder3.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder3.gad"
+    { 
+	VALUE(folder3.gad.val) STRETCH(1,0)
+
+	TAB "Visualization"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    vis_neighbours.row.join;		
+	    vis_neighbour_colors.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+folder2.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder2.gad"
+    { 
+	VALUE(folder2.gad.val) STRETCH(1,0)
+
+	TAB "Visualization"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    vis_coincidents.row.join;		
+	    vis_coincident_colors.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+folder1.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder1.gad"
+    { 
+	VALUE(folder1.gad.val) STRETCH(1,0)
+
+	TAB "Coincident Points"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_coincidents.gad;		
+	    coi_group.gad;		
+	    coi_radius.gad;		
+	    coi_maxpoints.gad;		
+	    coi_do_attrib.row.join;		
+	    coi_do_group.row.join;		
+	    coi_compare_mode.row.join;		
+	    folder2.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Neighbours"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_neighbours.gad;		
+	    nbr_group.gad;		
+	    nbr_do_attrib.row.join;		
+	    nbr_do_group.row.join;		
+	    nbr_compare_mode.row.join;		
+	    folder3.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Borders"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    do_borders.gad;		
+	    brd_do_attrib.row.join;		
+	    brd_value.gad;		
+	    brd_do_group_b.row.join;		
+	    brd_do_group_i.row.join;		
+	    folder5.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Indices & Attributes"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    folder0.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    op_label.gad; 
+    vismode.gad; 
+    display_gamma.row.join; 
+    baseColor.row.join; 
+    folder1.gad; 
+    do_delattribs.row.join; 
+    guide.row.join; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

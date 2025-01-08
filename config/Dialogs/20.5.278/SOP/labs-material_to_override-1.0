@@ -1,0 +1,77 @@
+// Magic: 47bb3750
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Fri Nov 29 17:53:45 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+srcgroup.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    srcgroup.label = PARM_LABEL("Group", "srcgroup") WIDTH(1.5);
+    PARM_FIELD(string, "srcgroup") VALUE(srcgroup.val) 
+	LABELREF(srcgroup.label) HSTRETCH;
+
+    srcgroup.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_reselect" VALUE(srcgroup.script_action)
+	HELP("Select geometry from an available viewport.\nShift-click to turn on Select Groups.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+snippet.gad = ROW
+{
+
+    LAYOUT(overlap) HSTRETCH JUSTIFY(right, top)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    {
+	LAYOUT(horizontal) JUSTIFY(right, top)
+
+    ACTION_ICONBUTTON "BUTTONS_create_parm_from_ch" VALUE(snippet.script_action)
+	HELP("Creates spare parameters for each unique call of ch() ")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    snippet.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    }
+
+    {
+	LAYOUT(vertical) HSTRETCH JUSTIFY(left, top)
+
+	snippet.label = PARM_LABEL("Overrides", "snippet");
+	{ HEIGHT(0.06) }
+
+        snippet.field = MULTILINE_PARM_FIELD ("snippet")
+	    LABELREF(snippet.label)
+	    VALUE(snippet.val)
+	    SYNTAX("VEX")
+	    LINES(8,30)
+	    HSTRETCH;
+    }
+
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    srcgroup.gad; 
+    snippet.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

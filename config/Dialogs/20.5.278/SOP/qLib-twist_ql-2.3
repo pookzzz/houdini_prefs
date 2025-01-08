@@ -1,0 +1,101 @@
+// Magic: 618a660c
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Tue Dec 10 20:08:18 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+start_angle.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   start_angle.label = PARM_LABEL("(start) Top Angles", "start_angle") ;
+   PARM(float, 2, "start_angle", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(start_angle.label)
+	HSTRETCH;
+
+    {  }
+}
+
+end_angle.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   end_angle.label = PARM_LABEL("(end) Bottom Angles", "end_angle") ;
+   PARM(float, 2, "end_angle", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(end_angle.label)
+	HSTRETCH;
+
+    {  }
+}
+y_bias.row.join =		
+{
+
+  LAYOUT(horizontal) JUSTIFY(left, center) UNSCALABLE
+
+y_bias.gad = 
+{
+
+ y_bias.label = PARM_LABEL("Start-End Bias", "y_bias");
+ PARM(float, 1, "y_bias", none, field) RANGE(0,1)
+	 LABELREF(y_bias.label) HSTRETCH;
+
+  {  }
+}
+
+y_gain.gad = 
+{
+
+ y_gain.label = PARM_LABEL("Gain", "y_gain");
+ PARM(float, 1, "y_gain", none, field) RANGE(0,1)
+	 LABELREF(y_gain.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+l_bias.row.join =		
+{
+
+  LAYOUT(horizontal) JUSTIFY(left, center) UNSCALABLE
+
+l_bias.gad = 
+{
+
+ l_bias.label = PARM_LABEL("In-Out Bias", "l_bias");
+ PARM(float, 1, "l_bias", none, field) RANGE(0,1)
+	 LABELREF(l_bias.label) HSTRETCH;
+
+  {  }
+}
+
+l_gain.gad = 
+{
+
+ l_gain.label = PARM_LABEL("Gain", "l_gain");
+ PARM(float, 1, "l_gain", none, field) RANGE(0,1)
+	 LABELREF(l_gain.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH JUSTIFY(left, center) UNSCALABLE
+    start_angle.gad; 
+    end_angle.gad; 
+    y_bias.row.join; 
+    l_bias.row.join; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val_) HSTRETCH
+
+    dialog_norm.gad;
+}

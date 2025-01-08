@@ -1,0 +1,617 @@
+// Magic: 561a92bb
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Nov 14 20:08:53 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+input.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("input", "Show Guide") toggle VALUE(input.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    attrib.label = PARM_LABEL("Position Attribute", "attrib") WIDTH(1.5);
+    PARM_FIELD(string, "attrib") VALUE(attrib.val) 
+	LABELREF(attrib.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+add_rel_attr.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+add_rel_attr.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+add_rel_attr.gad = PARM_BUTTON("add_rel_attr", "") toggle VALUE(add_rel_attr.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+relbbox_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    relbbox_attrib.label = PARM_LABEL("Add 'relbbox' Attrib", "relbbox_attrib") WIDTH(1.32);
+    PARM_FIELD(string, "relbbox_attrib") VALUE(relbbox_attrib.val) 
+	LABELREF(relbbox_attrib.label) HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+
+enable_del.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("enable_del", "Enable") toggle VALUE(enable_del.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+calc_bbox.gad = NULL { }
+
+op.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    op.label = PARM_LABEL_SIMPLE("Operation", "op") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    op.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+groupname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    groupname.label = PARM_LABEL("Group Name", "groupname") WIDTH(1.5);
+    PARM_FIELD(string, "groupname") VALUE(groupname.val) 
+	LABELREF(groupname.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+type.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    type.label = PARM_LABEL_SIMPLE("Element", "type") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    type.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+method.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    method.label = PARM_LABEL_SIMPLE("Promotion Method", "method") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    method.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+thresh.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ thresh.label = PARM_LABEL("Threshold Value", "thresh") WIDTH(1.5);
+ PARM(float, 1, "thresh", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(thresh.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+axes_buttons.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    PARM_LABEL_SIMPLE("Axes", "axes_buttons") WIDTH(1.5);
+    { WIDTH(0.1) }
+
+    axes_buttons.buttonstrip;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+parm.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("parm", "Intersect Axis choices") toggle VALUE(parm.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+enable_weight.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("enable_weight", "Enable") toggle VALUE(enable_weight.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+viz.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("viz", "Visualize") toggle VALUE(viz.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+axis.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    axis.label = PARM_LABEL_SIMPLE("Axis", "axis") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    axis.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+weight_attrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    weight_attrib.label = PARM_LABEL("Attribute", "weight_attrib") WIDTH(1.5);
+    PARM_FIELD(string, "weight_attrib") VALUE(weight_attrib.val) 
+	LABELREF(weight_attrib.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+newparameter.si_rampedit = FLOAT_RAMP VALUE(newparameter.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+newparameter.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	newparameter.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(newparameter.pointno.val) HSTRETCH;
+    }
+}
+
+newparameter.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(newparameter.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(newparameter.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    ROW
+    {
+	    newparameter.toggleparms.gad
+	      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+		HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+		VALUE(newparameter.toggle.val)
+		LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+
+	    newparameter.togglerampsize.gad
+	      = ACTION_ICONBUTTON "BUTTONS_restore_mini"
+		HELP("Maximize ramp", "h.pane.parms.toggle_ramp_size")
+		VALUE(newparameter.togglerampsize.val)
+		LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+    }
+}
+
+newparameter.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    newparameter.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	newparameter.buttons.gad VSTRETCH;
+
+	newparameter.si_rampedit HSTRETCH;
+    }
+}
+
+newparameter.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Remap Ramp", "newparameter");
+
+	{ HSTRETCH }
+	newparameter.interp
+	    = ACTION_MENU_ICONBUTTON newparameter.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(newparameter.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(newparameter.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	newparameter.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	TOGGLE_ICONBUTTON "COP2_ramp" VALUE(newparameter.drawgrayscale.val)
+		LOOKFLAT HELP("Grayscale View") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	newparameter.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(newparameter.hideparms.val) HSTRETCH
+	    newparameter.multiramp;
+	    {}
+	}
+    }
+}
+
+centre.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("centre", "Centre point") toggle VALUE(centre.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+xline.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+xline.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("xline", "X Line") toggle VALUE(xline.val);
+
+    {  }
+
+    {  }
+}
+
+xlinepos.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   xlinepos.label = PARM_LABEL("YZ Position", "xlinepos") ;
+   PARM(float, 2, "xlinepos", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(xlinepos.label)
+	HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+yline.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+yline.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("yline", "Y Line") toggle VALUE(yline.val);
+
+    {  }
+
+    {  }
+}
+
+ylinepos.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   ylinepos.label = PARM_LABEL("XZ Position", "ylinepos") ;
+   PARM(float, 2, "ylinepos", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(ylinepos.label)
+	HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+zline.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+zline.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("zline", "Z Line") toggle VALUE(zline.val);
+
+    {  }
+
+    {  }
+}
+
+zlinepos.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   zlinepos.label = PARM_LABEL("XY Position", "zlinepos") ;
+   PARM(float, 2, "zlinepos", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(zlinepos.label)
+	HSTRETCH;
+
+    {  }
+}
+}	// Template join.bot
+
+
+bbsize.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   bbsize.label = PARM_LABEL("BB Size", "bbsize") WIDTH(1.5);
+   PARM(float, 3, "bbsize", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(bbsize.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+bbcenter.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   bbcenter.label = PARM_LABEL("BB Center", "bbcenter") WIDTH(1.5);
+   PARM(float, 3, "bbcenter", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(bbcenter.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+bbmin.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   bbmin.label = PARM_LABEL("BB Min", "bbmin") WIDTH(1.5);
+   PARM(float, 3, "bbmin", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(bbmin.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+bbmax.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   bbmax.label = PARM_LABEL("BB Max", "bbmax") WIDTH(1.5);
+   PARM(float, 3, "bbmax", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(bbmax.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+folder1.gad = 
+
+GROUP simple "Axis Weightmap" flat 
+{ 
+    VALUE(folder1.gad.val) LAYOUT(vertical) HSTRETCH 
+	    viz.gad;		
+	    axis.gad;		
+	    weight_attrib.gad;		
+	    newparameter.gad;		
+} 
+
+folder0.gad = 
+
+GROUP simple "Deletion" flat 
+{ 
+    VALUE(folder0.gad.val) LAYOUT(vertical) HSTRETCH 
+	    calc_bbox.gad;		
+	    op.gad;		
+	    groupname.gad;		
+	    type.gad;		
+	    method.gad;		
+	    thresh.gad;		
+	    axes_buttons.gad;		
+	    parm.gad;		
+} 
+
+f.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "f.gad"
+    { 
+	VALUE(f.gad.val) STRETCH(1,0)
+
+	TAB "Relative Bbox Grouping and Weighting"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    enable_del.gad;		
+	    folder0.gad;		
+	    enable_weight.gad;		
+	    folder1.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Useful Geo (2nd Output)"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    centre.gad;		
+	    xline.row.join;		
+	    yline.row.join;		
+	    zline.row.join;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "BBox Information"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    bbsize.gad;		
+	    bbcenter.gad;		
+	    bbmin.gad;		
+	    bbmax.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    input.gad; 
+    attrib.gad; 
+    add_rel_attr.row.join; 
+    f.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

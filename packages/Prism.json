@@ -1,0 +1,8 @@
+{
+    "env": [
+        {"PRISM_ROOT": "${PRISM_ROOT-C:/Program Files/Prism2}"
+        }
+    ],
+    "path" : "C:/ProgramData/Prism2/plugins/Houdini/Integration",
+    "load_package_once": true
+}

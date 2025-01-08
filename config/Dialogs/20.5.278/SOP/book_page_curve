@@ -1,0 +1,121 @@
+// Magic: 1ae7a785
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Tue Oct 22 15:00:16 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+turn.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ turn.label = PARM_LABEL("Turn", "turn") WIDTH(1.5);
+ PARM(float, 1, "turn", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(turn.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+turnrange.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   turnrange.label = PARM_LABEL("Turn Range", "turnrange") WIDTH(1.5);
+   PARM(float, 2, "turnrange", none, none, "#1,#2")
+	RANGE(0,1) LOCK_RANGE LABELREF(turnrange.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+falloff.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ falloff.label = PARM_LABEL("Falloff", "falloff") WIDTH(1.5);
+ PARM(float, 1, "falloff", none, none) RANGE(0,1)
+	 LABELREF(falloff.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+shape.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ shape.label = PARM_LABEL("Shape", "shape") WIDTH(1.5);
+ PARM(float, 1, "shape", none, none) RANGE(0,1)
+	 LABELREF(shape.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+dosegs.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dosegs", "Maximum Segments") toggle VALUE(dosegs.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+segs.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ segs.label = PARM_LABEL("Segments", "segs") WIDTH(1.5);
+ PARM(integer, 1, "segs", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(segs.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    turn.gad; 
+    turnrange.gad; 
+    falloff.gad; 
+    shape.gad; 
+    sepparm.gad; 
+    dosegs.gad; 
+    segs.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

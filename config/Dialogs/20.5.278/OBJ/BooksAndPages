@@ -1,0 +1,746 @@
+// Magic: 8488c1a0
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Oct 24 21:40:28 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+xOrd.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+xOrd.gad = NULL { }
+rOrd.gad = NULL { }
+}	// Template join.bot
+
+t.gad = NULL { }
+r.gad = NULL { }
+s.gad = NULL { }
+p.gad = NULL { }
+pr.gad = NULL { }
+scale.gad = NULL { }
+pre_xform.gad = NULL { }
+keeppos.gad = NULL { }
+childcomp.gad = NULL { }
+constraints_on.gad = NULL { }
+constraints_path.gad = NULL { }
+lookatpath.gad = NULL { }
+lookupobjpath.gad = NULL { }
+lookup.gad = NULL { }
+pathobjpath.gad = NULL { }
+roll.gad = NULL { }
+pos.gad = NULL { }
+uparmtype.gad = NULL { }
+pathorient.gad = NULL { }
+up.gad = NULL { }
+bank.gad = NULL { }
+label1.gad = NULL { }
+label2.gad = NULL { }
+label3.gad = NULL { }
+label4.gad = NULL { }
+tdisplay.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+tdisplay.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+tdisplay.gad = NULL { }
+display.gad = NULL { }
+}	
+}	// Template join.bot
+
+outputobj.gad = NULL { }
+visibleobjects.gad = NULL { }
+picking.gad = NULL { }
+pickscript.gad = NULL { }
+caching.gad = NULL { }
+use_dcolor.gad = NULL { }
+dcolor.gad = NULL { }
+
+sepparm2.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+sepparm5.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+height.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ height.label = PARM_LABEL("height", "height") WIDTH(1.5);
+ PARM(float, 1, "height", none, none) RANGE(1,10)
+	 LABELREF(height.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+width.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ width.label = PARM_LABEL("width", "width") WIDTH(1.5);
+ PARM(float, 1, "width", none, none) RANGE(2.8,10)
+	 LABELREF(width.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+bookThickness.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ bookThickness.label = PARM_LABEL("bookThickness", "bookThickness") WIDTH(1.5);
+ PARM(float, 1, "bookThickness", none, none) RANGE(0,3)
+	 LABELREF(bookThickness.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+pageStep.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ pageStep.label = PARM_LABEL("pageStep", "pageStep") WIDTH(1.5);
+ PARM(float, 1, "pageStep", none, none) RANGE(0,1)
+	 LABELREF(pageStep.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+randPages.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ randPages.label = PARM_LABEL("randPages", "randPages") WIDTH(1.5);
+ PARM(float, 1, "randPages", none, none) RANGE(0,10)
+	 LABELREF(randPages.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+coverOverSize.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coverOverSize.label = PARM_LABEL("coverOverSize", "coverOverSize") WIDTH(1.5);
+ PARM(float, 1, "coverOverSize", none, none) RANGE(0,1)
+	 LABELREF(coverOverSize.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+coverThickness.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coverThickness.label = PARM_LABEL("coverThickness", "coverThickness") WIDTH(1.5);
+ PARM(float, 1, "coverThickness", none, none) RANGE(0,1)
+	 LABELREF(coverThickness.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+coverRoundness.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coverRoundness.label = PARM_LABEL("coverRoundness", "coverRoundness") WIDTH(1.5);
+ PARM(float, 1, "coverRoundness", none, none) RANGE(0,0.1)
+	 LABELREF(coverRoundness.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+coverFoldWidth.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ coverFoldWidth.label = PARM_LABEL("coverFoldWidth", "coverFoldWidth") WIDTH(1.5);
+ PARM(float, 1, "coverFoldWidth", none, none) RANGE(0.05,0.2)
+	 LABELREF(coverFoldWidth.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+flattenEndPage.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ flattenEndPage.label = PARM_LABEL("flattenEndPage", "flattenEndPage") WIDTH(1.5);
+ PARM(float, 1, "flattenEndPage", none, none) RANGE(0,1)
+	 LABELREF(flattenEndPage.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+curlWhenTurn.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ curlWhenTurn.label = PARM_LABEL("curlWhenTurn", "curlWhenTurn") WIDTH(1.5);
+ PARM(float, 1, "curlWhenTurn", none, none) RANGE(-1,1)
+	 LABELREF(curlWhenTurn.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+pageState.si_rampedit = FLOAT_RAMP VALUE(pageState.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+pageState.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	pageState.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(pageState.pointno.val) HSTRETCH;
+    }
+}
+
+pageState.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(pageState.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(pageState.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    ROW
+    {
+	    pageState.toggleparms.gad
+	      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+		HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+		VALUE(pageState.toggle.val)
+		LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+
+	    pageState.togglerampsize.gad
+	      = ACTION_ICONBUTTON "BUTTONS_restore_mini"
+		HELP("Maximize ramp", "h.pane.parms.toggle_ramp_size")
+		VALUE(pageState.togglerampsize.val)
+		LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+    }
+}
+
+pageState.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    pageState.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	pageState.buttons.gad VSTRETCH;
+
+	pageState.si_rampedit HSTRETCH;
+    }
+}
+
+pageState.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("pageState", "pageState");
+
+	{ HSTRETCH }
+	pageState.interp
+	    = ACTION_MENU_ICONBUTTON pageState.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(pageState.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(pageState.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	pageState.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	TOGGLE_ICONBUTTON "COP2_ramp" VALUE(pageState.drawgrayscale.val)
+		LOOKFLAT HELP("Grayscale View") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	pageState.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(pageState.hideparms.val) HSTRETCH
+	    pageState.multiramp;
+	    {}
+	}
+    }
+}
+
+sepparm4.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+SideRotation.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ SideRotation.label = PARM_LABEL("SideRotation", "SideRotation") WIDTH(1.5);
+ PARM(float, 1, "SideRotation", none, none) RANGE(-90,90)
+	LOCK_RANGE LABELREF(SideRotation.label) HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_rotation" VALUE(SideRotation.script_action)
+	HELP("Select an object to match the rotation with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+  { WIDTH(0.1) }
+}
+
+RotatePageA.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ RotatePageA.label = PARM_LABEL("RotatePageA", "RotatePageA") WIDTH(1.5);
+ PARM(float, 1, "RotatePageA", none, none) RANGE(-180,180)
+	LOCK_RANGE LABELREF(RotatePageA.label) HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_rotation" VALUE(RotatePageA.script_action)
+	HELP("Select an object to match the rotation with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+  { WIDTH(0.1) }
+}
+
+RotatePageB.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ RotatePageB.label = PARM_LABEL("RotatePageB", "RotatePageB") WIDTH(1.5);
+ PARM(float, 1, "RotatePageB", none, none) RANGE(-180,180)
+	LOCK_RANGE LABELREF(RotatePageB.label) HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_rotation" VALUE(RotatePageB.script_action)
+	HELP("Select an object to match the rotation with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+  { WIDTH(0.1) }
+}
+
+t2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   t2.label = PARM_LABEL("Translate", "t2") WIDTH(1.5);
+   PARM(float, 3, "t2", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(t2.label)
+	HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_transform" VALUE(t2.script_action)
+	HELP("Select an object to match the translation with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+r2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   r2.label = PARM_LABEL("Rotate", "r2") WIDTH(1.5);
+   PARM(float, 3, "r2", none, none, "X,Y,Z")
+	RANGE(0,360)  LABELREF(r2.label)
+	HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_rotation" VALUE(r2.script_action)
+	HELP("Select an object to match the rotation with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+s2.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   s2.label = PARM_LABEL("Scale", "s2") WIDTH(1.5);
+   PARM(float, 3, "s2", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(s2.label)
+	HSTRETCH;
+
+    ACTION_ICONBUTTON "BUTTONS_match_scale" VALUE(s2.script_action)
+	HELP("Select an object to match the scale with.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+constraints_on2.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("constraints_on2", "Enable Constraints") toggle VALUE(constraints_on2.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+constraints_path2.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ constraints_path2.label = PARM_LABEL("Constraints", "constraints_path2") WIDTH(1.5);
+ PARM_FIELD(pathstring, "constraints_path2") VALUE(constraints_path2.val) 
+	LABELREF(constraints_path2.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(constraints_path2.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(constraints_path2.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+    ACTION_ICONBUTTON "BUTTONS_add_constraints" VALUE(constraints_path2.script_action)
+	HELP("")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+
+sepparm7.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+ThickenPage.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("ThickenPage", "THICKEN PAGES") toggle VALUE(ThickenPage.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm6.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+SubdivideCover.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("SubdivideCover", "SubdivideCover") toggle VALUE(SubdivideCover.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+CoverSubDivValue.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ CoverSubDivValue.label = PARM_LABEL("CoverSubDivValue", "CoverSubDivValue") WIDTH(1.5);
+ PARM(integer, 1, "CoverSubDivValue", none, none) RANGE(1,3)
+	 LABELREF(CoverSubDivValue.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+SubdividePages.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("SubdividePages", "SubdividePages") toggle VALUE(SubdividePages.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+PagesSubDivValue.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ PagesSubDivValue.label = PARM_LABEL("PagesSubDivValue", "PagesSubDivValue") WIDTH(1.5);
+ PARM(integer, 1, "PagesSubDivValue", none, none) RANGE(1,3)
+	 LABELREF(PagesSubDivValue.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+PageResolutionV.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ PageResolutionV.label = PARM_LABEL("PageResolutionV", "PageResolutionV") WIDTH(1.5);
+ PARM(integer, 1, "PageResolutionV", none, none) RANGE(2,50)
+	 LABELREF(PageResolutionV.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+PageResolutionH.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ PageResolutionH.label = PARM_LABEL("PageResolutionH", "PageResolutionH") WIDTH(1.5);
+ PARM(integer, 1, "PageResolutionH", none, none) RANGE(10,100)
+	 LABELREF(PageResolutionH.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+CoverResolutionV.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ CoverResolutionV.label = PARM_LABEL("CoverResolutionV", "CoverResolutionV") WIDTH(1.5);
+ PARM(integer, 1, "CoverResolutionV", none, none) RANGE(2,50)
+	 LABELREF(CoverResolutionV.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+CoverResolutionH.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ CoverResolutionH.label = PARM_LABEL("CoverResolutionH", "CoverResolutionH") WIDTH(1.5);
+ PARM(integer, 1, "CoverResolutionH", none, none) RANGE(2,50)
+	 LABELREF(CoverResolutionH.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+stdswitcher3.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "stdswitcher3.gad"
+    { 
+	VALUE(stdswitcher3.gad.val) STRETCH(1,0)
+
+	TAB "Modeling"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm2.gad;		
+	    sepparm5.gad;		
+	    height.gad;		
+	    width.gad;		
+	    bookThickness.gad;		
+	    pageStep.gad;		
+	    randPages.gad;		
+	    coverOverSize.gad;		
+	    coverThickness.gad;		
+	    coverRoundness.gad;		
+	    coverFoldWidth.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Transforms"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm3.gad;		
+	    flattenEndPage.gad;		
+	    curlWhenTurn.gad;		
+	    sepparm.gad;		
+	    pageState.gad;		
+	    sepparm4.gad;		
+	    SideRotation.gad;		
+	    RotatePageA.gad;		
+	    RotatePageB.gad;		
+	    t2.gad;		
+	    r2.gad;		
+	    s2.gad;		
+	    constraints_on2.gad;		
+	    constraints_path2.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Resolution"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    sepparm7.gad;		
+	    ThickenPage.gad;		
+	    sepparm6.gad;		
+	    SubdivideCover.gad;		
+	    CoverSubDivValue.gad;		
+	    SubdividePages.gad;		
+	    PagesSubDivValue.gad;		
+	    PageResolutionV.gad;		
+	    PageResolutionH.gad;		
+	    CoverResolutionV.gad;		
+	    CoverResolutionH.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    stdswitcher3.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

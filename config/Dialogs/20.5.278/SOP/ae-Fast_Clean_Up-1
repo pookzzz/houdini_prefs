@@ -1,0 +1,147 @@
+// Magic: 9567c000
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Mon Dec  9 11:12:36 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+presets.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    presets.label = PARM_LABEL_SIMPLE("Presets (TODO)", "presets") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    presets.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+invert.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert", "Invert (Remove Attrs)") toggle VALUE(invert.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+keep_point.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    keep_point.label = PARM_LABEL("Keep Point Attrs:", "keep_point") WIDTH(1.5);
+    PARM_FIELD(string, "keep_point") VALUE(keep_point.val) 
+	LABELREF(keep_point.label) HSTRETCH;
+
+    keep_point.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+keep_vertex.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    keep_vertex.label = PARM_LABEL("Keep Vertex Attrs:", "keep_vertex") WIDTH(1.5);
+    PARM_FIELD(string, "keep_vertex") VALUE(keep_vertex.val) 
+	LABELREF(keep_vertex.label) HSTRETCH;
+
+    keep_vertex.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+keep_prim.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    keep_prim.label = PARM_LABEL("Keep Prim Attrs:", "keep_prim") WIDTH(1.5);
+    PARM_FIELD(string, "keep_prim") VALUE(keep_prim.val) 
+	LABELREF(keep_prim.label) HSTRETCH;
+
+    keep_prim.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+keep_detail.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    keep_detail.label = PARM_LABEL("Keep Detail Attrs:", "keep_detail") WIDTH(1.5);
+    PARM_FIELD(string, "keep_detail") VALUE(keep_detail.val) 
+	LABELREF(keep_detail.label) HSTRETCH;
+
+    keep_detail.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+delgroups.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    delgroups.label = PARM_LABEL("Remove Groups", "delgroups") WIDTH(1.5);
+    PARM_FIELD(string, "delgroups") VALUE(delgroups.val) 
+	LABELREF(delgroups.label) HSTRETCH;
+
+    delgroups.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    presets.gad; 
+    invert.gad; 
+    keep_point.gad; 
+    keep_vertex.gad; 
+    keep_prim.gad; 
+    keep_detail.gad; 
+    sepparm.gad; 
+    delgroups.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

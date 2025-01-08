@@ -1,0 +1,997 @@
+// Magic: e7ac2eb7
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Tue Dec 31 16:16:48 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+execute.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+execute.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.1) }
+
+    PARM_BUTTON("execute", "Render")
+	push VALUE(execute.val);
+
+    {  }
+}
+
+renderdialog.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("renderdialog", "Controls...")
+	push VALUE(renderdialog.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+single_render.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("single_render", "Render in One Image") toggle VALUE(single_render.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+imposter_enum.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    imposter_enum.label = PARM_LABEL_SIMPLE("Impostor Type", "imposter_enum") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    imposter_enum.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+source_geo.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ source_geo.label = PARM_LABEL("Source Geometry", "source_geo") WIDTH(1.5);
+ PARM_FIELD(pathstring, "source_geo") VALUE(source_geo.val) 
+	LABELREF(source_geo.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(source_geo.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(source_geo.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+source_geo_full_path.gad = NULL { }
+
+camera_rig.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ camera_rig.label = PARM_LABEL("Camera Rig", "camera_rig") WIDTH(1.5);
+ PARM_FIELD(pathstring, "camera_rig") VALUE(camera_rig.val) 
+	LABELREF(camera_rig.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(camera_rig.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(camera_rig.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+camera_rig_full_path.gad = NULL { }
+
+sprite_res.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   sprite_res.label = PARM_LABEL("Sprite Resolution", "sprite_res") WIDTH(1.5);
+   PARM(float, 2, "sprite_res", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(sprite_res.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+frames.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ frames.label = PARM_LABEL("XY Frames", "frames") WIDTH(1.5);
+ PARM(integer, 1, "frames", none, none) RANGE(0,10)
+	 LABELREF(frames.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+fOctResolution.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    fOctResolution.label = PARM_LABEL_SIMPLE("Atlas Resolution", "fOctResolution") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    fOctResolution.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fOctZoom.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ fOctZoom.label = PARM_LABEL("Octahedron Zoom", "fOctZoom") WIDTH(1.5);
+ PARM(float, 1, "fOctZoom", none, none) RANGE(0.001,2)
+	 LABELREF(fOctZoom.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+animzoom.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ animzoom.label = PARM_LABEL("Camera Zoom", "animzoom") WIDTH(1.5);
+ PARM(float, 1, "animzoom", none, none) RANGE(0.001,2)
+	 LABELREF(animzoom.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+anim_frames.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   anim_frames.label = PARM_LABEL("Animation Frames", "anim_frames") WIDTH(1.5);
+   PARM(integer, 2, "anim_frames", none, none, "X,Y")
+	RANGE(0,10)  LABELREF(anim_frames.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+output_sequence.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ output_sequence.label = PARM_LABEL("Output Picture", "output_sequence") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "output_sequence") LABELREF(output_sequence.label)
+	VALUE(output_sequence.val) HSTRETCH;
+
+    output_sequence.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(output_sequence.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+anim_output_sequence.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ anim_output_sequence.label = PARM_LABEL("Output Picture", "anim_output_sequence") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "anim_output_sequence") LABELREF(anim_output_sequence.label)
+	VALUE(anim_output_sequence.val) HSTRETCH;
+
+    anim_output_sequence.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(anim_output_sequence.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sopoutput.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ { WIDTH(0.18) }
+
+ sopoutput.label = PARM_LABEL("Output Geo", "sopoutput") WIDTH(1.5);
+
+ PARM_FIELD (pathstring, "sopoutput") LABELREF(sopoutput.label)
+	VALUE(sopoutput.val) HSTRETCH;
+
+    sopoutput.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(sopoutput.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+premult.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("premult", "Pre Multiply") toggle VALUE(premult.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+beauty_toggle.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+beauty_toggle.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("beauty_toggle", "Beauty Map") toggle VALUE(beauty_toggle.val);
+
+    {  }
+
+    {  }
+}
+
+beauty_atlas.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ beauty_atlas.label = PARM_LABEL("Beauty Atlas", "beauty_atlas") ;
+
+ PARM_FIELD (pathstring, "beauty_atlas") LABELREF(beauty_atlas.label)
+	VALUE(beauty_atlas.val) HSTRETCH;
+
+    beauty_atlas.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(beauty_atlas.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+}	// Template join.bot
+
+base_color_toggle.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+base_color_toggle.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("base_color_toggle", "Base Color Map") toggle VALUE(base_color_toggle.val);
+
+    {  }
+
+    {  }
+}
+
+base_color_atlas.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ base_color_atlas.label = PARM_LABEL("Base Color Atlas", "base_color_atlas") ;
+
+ PARM_FIELD (pathstring, "base_color_atlas") LABELREF(base_color_atlas.label)
+	VALUE(base_color_atlas.val) HSTRETCH;
+
+    base_color_atlas.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(base_color_atlas.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+}	// Template join.bot
+
+normals_toggle.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+normals_toggle.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("normals_toggle", "Normals Map") toggle VALUE(normals_toggle.val);
+
+    {  }
+
+    {  }
+}
+
+normals_atlas.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+ {  }
+
+ normals_atlas.label = PARM_LABEL("Normals Atlas", "normals_atlas") ;
+
+ PARM_FIELD (pathstring, "normals_atlas") LABELREF(normals_atlas.label)
+	VALUE(normals_atlas.val) HSTRETCH;
+
+    normals_atlas.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_file" VALUE(normals_atlas.plus) LOOKFLAT
+    HELP("Open floating file chooser") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+ {  }
+}
+}	// Template join.bot
+
+
+vm_samples.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   vm_samples.label = PARM_LABEL("Pixel Samples", "vm_samples") WIDTH(1.5);
+   PARM(integer, 2, "vm_samples", none, none, "X,Y")
+	RANGE(1,32)  LABELREF(vm_samples.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+vm_dorayvariance.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vm_dorayvariance", "Ray Variance Antialiasing") toggle VALUE(vm_dorayvariance.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+vm_colorspace.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    vm_colorspace.label = PARM_LABEL_SIMPLE("Variance Color Space", "vm_colorspace") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    vm_colorspace.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+labelparm.sval := 1;
+
+labelparm.gad = 
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    SWITCHER tight
+    {
+	VALUE(labelparm.sval) HSTRETCH
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+	    LABEL "Maximum Number of Indirect Samples" HSTRETCH;
+
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[11]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[11]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[12]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[11]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[12]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[13]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[11]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[12]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[13]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[14]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+        {
+            LAYOUT(horizontal) HSTRETCH
+
+            LABEL "Maximum Number of Indirect Samples":1.5 JUSTIFY(right, center);
+
+            LABEL VALUE(labelparm.val[0]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[1]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[2]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[3]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[4]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[5]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[6]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[7]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[8]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[9]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[10]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[11]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[12]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[13]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[14]) JUSTIFY(center,center) HSTRETCH;
+            LABEL VALUE(labelparm.val[15]) JUSTIFY(center,center) HSTRETCH;
+        }
+
+    }
+}
+
+vm_minraysamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_minraysamples.label = PARM_LABEL("Min Ray Samples", "vm_minraysamples") WIDTH(1.5);
+ PARM(integer, 1, "vm_minraysamples", none, none) RANGE(1,64)
+	 LABELREF(vm_minraysamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_maxraysamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_maxraysamples.label = PARM_LABEL("Max Ray Samples", "vm_maxraysamples") WIDTH(1.5);
+ PARM(integer, 1, "vm_maxraysamples", none, none) RANGE(1,64)
+	 LABELREF(vm_maxraysamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_variance.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_variance.label = PARM_LABEL("Noise Level", "vm_variance") WIDTH(1.5);
+ PARM(float, 1, "vm_variance", none, none) RANGE(0,0.1)
+	 LABELREF(vm_variance.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_globalquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_globalquality.label = PARM_LABEL("Global Quality", "vm_globalquality") WIDTH(1.5);
+ PARM(float, 1, "vm_globalquality", none, none) RANGE(0,10)
+	 LABELREF(vm_globalquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_diffusequality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_diffusequality.label = PARM_LABEL("Diffuse Quality", "vm_diffusequality") WIDTH(1.5);
+ PARM(float, 1, "vm_diffusequality", none, none) RANGE(0,10)
+	 LABELREF(vm_diffusequality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_sssquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_sssquality.label = PARM_LABEL("SSS Quality", "vm_sssquality") WIDTH(1.5);
+ PARM(float, 1, "vm_sssquality", none, none) RANGE(0,10)
+	 LABELREF(vm_sssquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_reflectionquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_reflectionquality.label = PARM_LABEL("Reflection Quality", "vm_reflectionquality") WIDTH(1.5);
+ PARM(float, 1, "vm_reflectionquality", none, none) RANGE(0,10)
+	 LABELREF(vm_reflectionquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_refractionquality.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_refractionquality.label = PARM_LABEL("Refraction Quality", "vm_refractionquality") WIDTH(1.5);
+ PARM(float, 1, "vm_refractionquality", none, none) RANGE(0,10)
+	 LABELREF(vm_refractionquality.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_volumesteprate.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_volumesteprate.label = PARM_LABEL("Volume Step Rate", "vm_volumesteprate") WIDTH(1.5);
+ PARM(float, 1, "vm_volumesteprate", none, none) RANGE(0.1,10)
+	 LABELREF(vm_volumesteprate.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_volumeshadowsteprate.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_volumeshadowsteprate.label = PARM_LABEL("Volume Shadow Step Rate", "vm_volumeshadowsteprate") WIDTH(1.5);
+ PARM(float, 1, "vm_volumeshadowsteprate", none, none) RANGE(0.1,10)
+	 LABELREF(vm_volumeshadowsteprate.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_transparent.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vm_transparent", "Stochastic Transparency") toggle VALUE(vm_transparent.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+vm_transparentsamples.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_transparentsamples.label = PARM_LABEL("Stochastic Samples", "vm_transparentsamples") WIDTH(1.5);
+ PARM(integer, 1, "vm_transparentsamples", none, none) RANGE(1,16)
+	 LABELREF(vm_transparentsamples.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_samplelock.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vm_samplelock", "Sample Lock") toggle VALUE(vm_samplelock.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+vm_randomseed.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ vm_randomseed.label = PARM_LABEL("Random Seed", "vm_randomseed") WIDTH(1.5);
+ PARM(integer, 1, "vm_randomseed", none, none) RANGE(0,10)
+	 LABELREF(vm_randomseed.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+vm_imageblur.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vm_imageblur", "Allow Image Motion Blur") toggle VALUE(vm_imageblur.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fd_atlas.gad = 
+
+GROUP simple "Atlas" flat 
+{ 
+    VALUE(fd_atlas.gad.val) LAYOUT(vertical) HSTRETCH 
+	    premult.gad;		
+	    beauty_toggle.row.join;		
+	    base_color_toggle.row.join;		
+	    normals_toggle.row.join;		
+} 
+
+fd_basesettings.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "fd_basesettings.gad"
+    { 
+	VALUE(fd_basesettings.gad.val) STRETCH(1,0)
+
+	TAB "Base Settings"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    single_render.gad;		
+	    imposter_enum.gad;		
+	    source_geo.gad;		
+	    source_geo_full_path.gad;		
+	    camera_rig.gad;		
+	    camera_rig_full_path.gad;		
+	    sprite_res.gad;		
+	    frames.gad;		
+	    fOctResolution.gad;		
+	    fOctZoom.gad;		
+	    animzoom.gad;		
+	    anim_frames.gad;		
+	    output_sequence.gad;		
+	    anim_output_sequence.gad;		
+	    sopoutput.gad;		
+	    sepparm.gad;		
+	    fd_atlas.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Sampling"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    vm_samples.gad;		
+	    vm_dorayvariance.gad;		
+	    vm_colorspace.gad;		
+	    labelparm.gad;		
+	    vm_minraysamples.gad;		
+	    vm_maxraysamples.gad;		
+	    vm_variance.gad;		
+	    vm_globalquality.gad;		
+	    vm_diffusequality.gad;		
+	    vm_sssquality.gad;		
+	    vm_reflectionquality.gad;		
+	    vm_refractionquality.gad;		
+	    vm_volumesteprate.gad;		
+	    vm_volumeshadowsteprate.gad;		
+	    vm_transparent.gad;		
+	    vm_transparentsamples.gad;		
+	    vm_samplelock.gad;		
+	    vm_randomseed.gad;		
+	    vm_imageblur.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    execute.row.join; 
+    fd_basesettings.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

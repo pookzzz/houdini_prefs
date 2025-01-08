@@ -1,0 +1,691 @@
+// Magic: 8427839e
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Tue Dec 10 19:25:31 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    group.label = PARM_LABEL("Point Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+envelope.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ envelope.label = PARM_LABEL("Envelope", "envelope") WIDTH(1.5);
+ PARM(float, 1, "envelope", none, none) RANGE(0,1)
+	 LABELREF(envelope.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+use_weight.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+use_weight.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+use_weight.gad = PARM_BUTTON("use_weight", "") toggle VALUE(use_weight.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+weight_name.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    {  }
+
+    weight_name.label = PARM_LABEL("Weight Name", "weight_name") WIDTH(1.32);
+    PARM_FIELD(string, "weight_name") VALUE(weight_name.val) 
+	LABELREF(weight_name.label) HSTRETCH;
+
+    weight_name.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    {  }
+}
+}	
+
+invert_weight.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("invert_weight", "Invert") toggle VALUE(invert_weight.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+use_weight_remap.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_weight_remap", "Remap Weights") toggle VALUE(use_weight_remap.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+weightsrc.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   weightsrc.label = PARM_LABEL("Source Range", "weightsrc") WIDTH(1.5);
+   PARM(float, 2, "weightsrc", none, none, "#1,#2")
+	RANGE(0,10)  LABELREF(weightsrc.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+weightdest.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   weightdest.label = PARM_LABEL("Output Range", "weightdest") WIDTH(1.5);
+   PARM(float, 2, "weightdest", none, none, "#1,#2")
+	RANGE(0,10)  LABELREF(weightdest.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+weightexp.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+weightexp.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ weightexp.label = PARM_LABEL("Exponent", "weightexp") WIDTH(1.5);
+ PARM(float, 1, "weightexp", none, LOGSCALE) RANGE(0.05,12)
+	 LABELREF(weightexp.label) HSTRETCH;
+
+  {  }
+}
+
+weightfitclamp.gad = ROW
+{
+    
+    {  }
+
+    PARM_BUTTON("weightfitclamp", "Clamped") toggle VALUE(weightfitclamp.val);
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+use_obj.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_obj", "Use Object Transform") toggle VALUE(use_obj.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+object_name.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ object_name.label = PARM_LABEL("Object Name", "object_name") WIDTH(1.5);
+ PARM_FIELD(pathstring, "object_name") VALUE(object_name.val) 
+	LABELREF(object_name.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(object_name.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(object_name.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+use_rest.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+use_rest.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+use_rest.gad = PARM_BUTTON("use_rest", "") toggle VALUE(use_rest.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+rest_obj.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ {  }
+
+ rest_obj.label = PARM_LABEL("Rest/Parent Obj.", "rest_obj") WIDTH(1.32);
+ PARM_FIELD(pathstring, "rest_obj") VALUE(rest_obj.val) 
+	LABELREF(rest_obj.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(rest_obj.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(rest_obj.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ {  }
+}
+}	
+}	// Template join.bot
+
+
+xformtype.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    xformtype.label = PARM_LABEL_SIMPLE("Transform", "xformtype") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    xformtype.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+xformpath.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ xformpath.label = PARM_LABEL("Transform Object", "xformpath") WIDTH(1.5);
+ PARM_FIELD(pathstring, "xformpath") VALUE(xformpath.val) 
+	LABELREF(xformpath.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(xformpath.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(xformpath.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+trs.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+trs.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    trs.label = PARM_LABEL_SIMPLE("Transform Order", "trs") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    trs.menu;
+
+    {  }
+
+    {  }
+}
+
+xyz.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    xyz.menu;
+
+    {  }
+
+    {  }
+}
+
+xform_presets.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    xform_presets.menu;
+
+    {  }
+
+    {  }
+}
+}	// Template join.bot
+
+
+t.gad = ROW 
+{
+    HSTRETCH
+   { WIDTH(0.18) }
+
+    t.label = PARM_LABEL("Translate", "t") WIDTH(1.5);
+    PARM(float, 3, "t", none, none) LABELREF(t.label)
+	HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+r.gad = ROW 
+{
+    HSTRETCH
+   { WIDTH(0.18) }
+
+    r.label = PARM_LABEL("Rotate", "r") WIDTH(1.5);
+    PARM(float, 3, "r", none, none) LABELREF(r.label)
+	HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+s.gad = ROW 
+{
+    HSTRETCH
+   { WIDTH(0.18) }
+
+    s.label = PARM_LABEL("Scale", "s") WIDTH(1.5);
+    PARM(float, 3, "s", none, none) LABELREF(s.label)
+	HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+p.gad = ROW 
+{
+    HSTRETCH
+   { WIDTH(0.18) }
+
+    p.label = PARM_LABEL("Pivot", "p") WIDTH(1.5);
+    PARM(float, 3, "p", none, none) LABELREF(p.label)
+	HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+scale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ scale.label = PARM_LABEL("Uniform Scale", "scale") WIDTH(1.5);
+ PARM(float, 1, "scale", none, none) RANGE(0,1)
+	 LABELREF(scale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+invert_xform.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("invert_xform", "Invert Transform") toggle VALUE(invert_xform.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+attribs.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    attribs.label = PARM_LABEL("Attributes to Transform", "attribs") WIDTH(1.5);
+    PARM_FIELD(string, "attribs") VALUE(attribs.val) 
+	LABELREF(attribs.label) HSTRETCH;
+
+    attribs.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+
+updateaffectednmls.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("updateaffectednmls", "Recompute Affected Normals") toggle VALUE(updateaffectednmls.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+vlength.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("vlength", "Preserve Normal Length") toggle VALUE(vlength.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+delattrib.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("delattrib", "Delete Weight Attribute After Operation") toggle VALUE(delattrib.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+visualize.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+visualize.gad = ROW
+{
+    
+    {  }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("visualize", "Visualize") toggle VALUE(visualize.val);
+
+    {  }
+
+    {  }
+}
+
+visramp.si_rampedit = COLOR_RAMP VALUE(visramp.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+visramp.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) 
+	    LABEL "Point No.";
+	}
+
+	visramp.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(visramp.pointno.val) HSTRETCH;
+    }
+}
+
+visramp.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(visramp.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(visramp.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    visramp.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+	VALUE(visramp.toggle.val)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+visramp.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    visramp.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	visramp.buttons.gad VSTRETCH;
+
+	visramp.si_rampedit HSTRETCH;
+    }
+}
+
+visramp.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Weight Value Map", "visramp");
+
+	{ HSTRETCH }
+	visramp.interp
+	    = ACTION_MENU_ICONBUTTON visramp.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(visramp.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(visramp.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	visramp.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	visramp.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(visramp.hideparms.val) HSTRETCH
+	    visramp.multiramp;
+	    {}
+	}
+    }
+}
+}	// Template join.bot
+
+
+visgamma.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ visgamma.label = PARM_LABEL("Display Gamma", "visgamma") WIDTH(1.5);
+ PARM(float, 1, "visgamma", none, none) RANGE(0.05,4)
+	 LABELREF(visgamma.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+guide.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guide", "Show Guide") toggle VALUE(guide.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+guide_bbox.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guide_bbox", "Show Geometry Bounds") toggle VALUE(guide_bbox.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+guide_bbox_orig.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("guide_bbox_orig", "Show Original Bounds") toggle VALUE(guide_bbox_orig.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+folder3.gad = 
+GROUP collapsible "Visualize" flat   
+{
+    VALUE(folder3.gad.val) LAYOUT(vertical) HSTRETCH
+	    visualize.row.join;		
+	    visgamma.gad;		
+} 
+
+folder1.gad = 
+
+GROUP simple "Attributes" flat 
+{ 
+    VALUE(folder1.gad.val) LAYOUT(vertical) HSTRETCH 
+	    attribs.gad;		
+	    updateaffectednmls.gad;		
+	    vlength.gad;		
+	    delattrib.gad;		
+} 
+
+folder2.gad = 
+
+GROUP simple "Transformation" flat 
+{ 
+    VALUE(folder2.gad.val) LAYOUT(vertical) HSTRETCH 
+	    use_obj.gad;		
+	    object_name.gad;		
+	    use_rest.row.join;		
+	    xformtype.gad;		
+	    xformpath.gad;		
+	    trs.row.join;		
+	    t.gad;		
+	    r.gad;		
+	    s.gad;		
+	    p.gad;		
+	    scale.gad;		
+	    invert_xform.gad;		
+} 
+
+folder_weights.gad = 
+
+GROUP simple "Weights" flat 
+{ 
+    VALUE(folder_weights.gad.val) LAYOUT(vertical) HSTRETCH 
+	    envelope.gad;		
+	    use_weight.row.join;		
+	    use_weight_remap.gad;		
+	    weightsrc.gad;		
+	    weightdest.gad;		
+	    weightexp.row.join;		
+} 
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    group.gad; 
+    folder_weights.gad; 
+    folder2.gad; 
+    folder1.gad; 
+    folder3.gad; 
+    guide.gad; 
+    guide_bbox.gad; 
+    guide_bbox_orig.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}
