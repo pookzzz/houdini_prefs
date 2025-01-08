@@ -1,0 +1,468 @@
+// Magic: dc0ca119
+// Automatically generated PSI dialog (PSI version 20.5.332)
+// Fri Dec  6 16:16:31 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+presets.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+presets.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    presets.label = PARM_LABEL_SIMPLE("Presets", "presets") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    presets.menu;
+
+    {  }
+
+    {  }
+}
+
+presetversion.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    presetversion.menu;
+
+    {  }
+
+    {  }
+}
+
+presetmode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    presetmode.menu;
+
+    {  }
+
+    {  }
+}
+
+applypreset.gad = ROW
+{
+    JUSTIFY(left, center)
+    {  }
+
+    PARM_BUTTON("applypreset", "Reset Constants")
+	push VALUE(applypreset.val);
+
+    {  }
+}
+}	// Template join.bot
+
+
+lb_consts.gad =
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+        LAYOUT(horizontal) HSTRETCH
+        { WIDTH(1.5) }
+        { WIDTH(0.08) }
+        LABEL VALUE(lb_consts.val[0]) HSTRETCH;
+    }
+    { HEIGHT(0.05) }
+}
+
+lb_densityhelp.gad =
+{
+    LAYOUT(vertical) SPACING(1p) HSTRETCH VMARGIN(0.05, 0)
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+        LAYOUT(horizontal) HSTRETCH
+        { WIDTH(1.5) }
+        { WIDTH(0.08) }
+        LABEL VALUE(lb_densityhelp.val[0]) HSTRETCH;
+    }
+    { HEIGHT(0.05) }
+}
+
+a.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ a.label = PARM_LABEL("A", "a") WIDTH(1.5);
+ PARM(float, 1, "a", none, none) RANGE(-5,5)
+	 LABELREF(a.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+b.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ b.label = PARM_LABEL("B", "b") WIDTH(1.5);
+ PARM(float, 1, "b", none, none) RANGE(-5,5)
+	 LABELREF(b.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+c.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ c.label = PARM_LABEL("C", "c") WIDTH(1.5);
+ PARM(float, 1, "c", none, none) RANGE(-5,5)
+	 LABELREF(c.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+d.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ d.label = PARM_LABEL("D", "d") WIDTH(1.5);
+ PARM(float, 1, "d", none, none) RANGE(-5,5)
+	 LABELREF(d.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+pointcount.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ pointcount.label = PARM_LABEL("Point Count", "pointcount") WIDTH(1.5);
+ PARM(integer, 1, "pointcount", none, none) RANGE(10000,500000)
+	 LABELREF(pointcount.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+sepparm3.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+computedensity.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("computedensity", "Compute Normalized Density") toggle VALUE(computedensity.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+sepparm4.gad = 
+
+{
+
+    LAYOUT(vertical) HSTRETCH
+
+    { HEIGHT(0.064700) }
+}
+
+densityattribute.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    densityattribute.label = PARM_LABEL("Density Attribute", "densityattribute") WIDTH(1.5);
+    PARM_FIELD(string, "densityattribute") VALUE(densityattribute.val) 
+	LABELREF(densityattribute.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+searchdistance.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ searchdistance.label = PARM_LABEL("Search Distance", "searchdistance") WIDTH(1.5);
+ PARM(float, 1, "searchdistance", none, none) RANGE(0.001,0.1)
+	LOCK_RANGE_MIN LABELREF(searchdistance.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+maxpts.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ maxpts.label = PARM_LABEL("Maximum Search Points", "maxpts") WIDTH(1.5);
+ PARM(integer, 1, "maxpts", none, none) RANGE(2,100)
+	LOCK_RANGE_MIN LABELREF(maxpts.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+addcolorbydensity.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addcolorbydensity", "Add Color by Density") toggle VALUE(addcolorbydensity.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+rampcolor.si_rampedit = COLOR_RAMP VALUE(rampcolor.ramp_val)
+			LAYOUT(horizontal)  HSTRETCH;
+
+rampcolor.multiramp = 
+{
+    LAYOUT(vertical) STRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+    ROW
+    {
+	JUSTIFY(left,center) SPACING(0.1) VMARGIN(0.02) HSTRETCH
+
+	COL
+	{
+	    JUSTIFY(right,center) WIDTH(1.5)
+	    LABEL "Point No.";
+	}
+
+	rampcolor.pointno.gad
+	    = INT_SLIDER_FIELD VALUE(rampcolor.pointno.val) HSTRETCH;
+    }
+}
+
+rampcolor.buttons.gad = COL
+{
+    VSTRETCH
+
+    ICON_BUTTON_STRIP
+    {
+	LAYOUT(horizontal) INITSIZE(20p, 20p) 
+
+	ACTION_ICONBUTTON "BUTTONS_delete"
+		HELP("Remove Point") VALUE(rampcolor.delpoint.val);
+	ACTION_ICONBUTTON "BUTTONS_add"
+		HELP("Add Point") VALUE(rampcolor.addpoint.val);
+    }
+
+    { VSTRETCH }
+
+    rampcolor.toggleparms.gad
+      = ACTION_ICONBUTTON "BUTTONS_show_controls"
+	HELP("Hide Controls", "h.pane.parms.toggle_ramp_parms")
+	VALUE(rampcolor.toggle.val)
+	LOOKFLAT UI_FLAT_ICON_BTN_SIZE_TINY;
+}
+
+rampcolor.parm =
+{
+    LAYOUT(vertical) HSTRETCH JUSTIFY(left, center)
+
+    rampcolor.ramp.gad = ROW
+    {
+	MARGIN(0.02) SPACING(0.02) JUSTIFY(left, top) HSTRETCH
+
+	rampcolor.buttons.gad VSTRETCH;
+
+	rampcolor.si_rampedit HSTRETCH;
+    }
+}
+
+rampcolor.gad =
+{
+    LAYOUT(vertical) MARGIN(2p) HSTRETCH
+    HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+    {
+	LAYOUT(horizontal) HSTRETCH
+
+	PARM_LABEL_SIMPLE("Color Ramp", "rampcolor");
+
+	{ HSTRETCH }
+	rampcolor.interp
+	    = ACTION_MENU_ICONBUTTON rampcolor.interp_icon.val
+                HELP("Set Interpolation on All Points") UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_x" VALUE(rampcolor.reverse.val)
+		LOOKFLAT HELP("Reverse Domain") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	ACTION_ICONBUTTON "BUTTONS_ramp_flip_y" VALUE(rampcolor.complement.val)
+		LOOKFLAT HELP("Complement Ramp") UI_FLAT_ICON_BTN_SIZE_SMALL;
+	rampcolor.presets
+	    = ACTION_MENU_ICONBUTTON "BUTTONS_gear"
+		LOOKFLAT HELP("Presets") UI_FLAT_ICON_BTN_SIZE_SMALL;
+
+    }
+
+    {
+	LAYOUT(vertical) MARGIN(2p) SPACING(0.02) HSTRETCH
+
+	rampcolor.parm;
+
+	SWITCHER tight
+	{
+	    LAYOUT(overlap) VALUE(rampcolor.hideparms.val) HSTRETCH
+	    rampcolor.multiramp;
+	    {}
+	}
+    }
+}
+
+addpscalebydensity.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("addpscalebydensity", "Add Pscale by Density") toggle VALUE(addpscalebydensity.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+minimumpscale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ minimumpscale.label = PARM_LABEL("Pscale at Min Density", "minimumpscale") WIDTH(1.5);
+ PARM(float, 1, "minimumpscale", none, none) RANGE(0,0.1)
+	LOCK_RANGE_MIN LABELREF(minimumpscale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+maximumpscale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ maximumpscale.label = PARM_LABEL("Pscale at Max Density", "maximumpscale") WIDTH(1.5);
+ PARM(float, 1, "maximumpscale", none, none) RANGE(0.001,0.1)
+	LOCK_RANGE_MIN LABELREF(maximumpscale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+displayasspheres.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("displayasspheres", "Display as Spheres") toggle VALUE(displayasspheres.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fd_pscale.gad = 
+GROUP collapsible "Point Radius" flat   
+{
+    VALUE(fd_pscale.gad.val) LAYOUT(vertical) HSTRETCH
+	    addpscalebydensity.gad;		
+	    minimumpscale.gad;		
+	    maximumpscale.gad;		
+	    displayasspheres.gad;		
+} 
+
+fd_color.gad = 
+GROUP collapsible "Point Color" flat   
+{
+    VALUE(fd_color.gad.val) LAYOUT(vertical) HSTRETCH
+	    addcolorbydensity.gad;		
+	    rampcolor.gad;		
+} 
+
+fd_density.gad = 
+GROUP collapsible "Point Density" flat   
+{
+    VALUE(fd_density.gad.val) LAYOUT(vertical) HSTRETCH
+	    densityattribute.gad;		
+	    searchdistance.gad;		
+	    maxpts.gad;		
+} 
+
+fd_needdensity.gad = 
+
+{
+    VALUE(fd_needdensity.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    sepparm4.gad;		
+	    fd_density.gad;		
+	    fd_color.gad;		
+	    fd_pscale.gad;		
+} 
+
+fd_consts.gad = 
+
+{
+    VALUE(fd_consts.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    a.gad;		
+	    b.gad;		
+	    c.gad;		
+	    d.gad;		
+} 
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    presets.row.join; 
+    lb_consts.gad; 
+    lb_densityhelp.gad; 
+    fd_consts.gad; 
+    pointcount.gad; 
+    sepparm3.gad; 
+    computedensity.gad; 
+    fd_needdensity.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

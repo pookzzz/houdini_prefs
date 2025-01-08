@@ -1,0 +1,158 @@
+// Magic: 131c6256
+// Automatically generated PSI dialog (PSI version 20.5.332)
+// Fri Dec  6 15:02:22 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+showglobaltex.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showglobaltex", "Global Parameter") toggle VALUE(showglobaltex.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+showseams.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showseams", "Seams") toggle VALUE(showseams.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+showfieldsingularities.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showfieldsingularities", "Field Singularities") toggle VALUE(showfieldsingularities.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+showfacedirfield.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showfacedirfield", "Field") toggle VALUE(showfacedirfield.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+directionfieldscale.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   directionfieldscale.label = PARM_LABEL( "Field Scale", "directionfieldscale" ) WIDTH(1.5);
+   PARM(float, 1, "directionfieldscale", none, none) RANGE(0, 1)
+	LABELREF( directionfieldscale.label ) HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+possingularcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+    { WIDTH(0.18) }
+
+    possingularcolor.label = PARM_LABEL("Singularity Color (+)", "possingularcolor") WIDTH(1.5);
+    PARM(float, 4, "possingularcolor", none, COLOR, "R,G,B,A") 
+	LABELREF(possingularcolor.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+negsingularcolor.gad = 
+{
+    LAYOUT (horizontal) HSTRETCH
+    { WIDTH(0.18) }
+
+    negsingularcolor.label = PARM_LABEL("Singularity Color (-)", "negsingularcolor") WIDTH(1.5);
+    PARM(float, 4, "negsingularcolor", none, COLOR, "R,G,B,A") 
+	LABELREF(negsingularcolor.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+showguidedirfield.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguidedirfield", "Guides") toggle VALUE(showguidedirfield.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+guidefieldscale.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   guidefieldscale.label = PARM_LABEL( "Guide Scale", "guidefieldscale" ) WIDTH(1.5);
+   PARM(float, 1, "guidefieldscale", none, none) RANGE(0, 1)
+	LABELREF( guidefieldscale.label ) HSTRETCH;
+
+   { WIDTH(0.1) }
+}
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    showglobaltex.gad; 
+    showseams.gad; 
+    showfieldsingularities.gad; 
+    showfacedirfield.gad; 
+    directionfieldscale.gad; 
+    possingularcolor.gad; 
+    negsingularcolor.gad; 
+    showguidedirfield.gad; 
+    guidefieldscale.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

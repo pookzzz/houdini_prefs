@@ -1,0 +1,16 @@
+{
+    "env": [
+        {
+            "ZHDA": "D:/Wanz/houdiniThings.v2/hda"
+        },
+        {
+            "ZOTL": "D:/Wanz/houdiniThings.v2/otls"
+        },
+        {
+            "PLUGS": "C:/Users/wanz/Documents/workspace/houdini/plugins"
+        },
+        {
+            "HOUDINI_OTLSCAN_PATH": "@/otls;$ZHDA;$ZHDA/dfx_vecfield_hda_bundle;$ZOTL;$ZOTL/pawel;$PLUGS/Nagamochi/common/otls;$HOUDINI_OTLSCAN_PATH"
+        }
+    ]
+}

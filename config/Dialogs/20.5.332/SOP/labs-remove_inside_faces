@@ -1,0 +1,118 @@
+// Magic: a66f065a
+// Automatically generated PSI dialog (PSI version 20.5.332)
+// Fri Dec  6 16:51:20 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+bRemoveInside.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bRemoveInside", "Remove Inside Faces") toggle VALUE(bRemoveInside.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fPrecision.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ fPrecision.label = PARM_LABEL("Border Precision", "fPrecision") WIDTH(1.5);
+ PARM(float, 1, "fPrecision", none, none) RANGE(0.001,0.05)
+	LOCK_RANGE_MIN LABELREF(fPrecision.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+fCleaningThreshold.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ fCleaningThreshold.label = PARM_LABEL("Border Threshold", "fCleaningThreshold") WIDTH(1.5);
+ PARM(float, 1, "fCleaningThreshold", none, none) RANGE(0,0.5)
+	LOCK_RANGE_MIN LABELREF(fCleaningThreshold.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+bClipSurface.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("bClipSurface", "Clip Surface") toggle VALUE(bClipSurface.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+vUpVector.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   vUpVector.label = PARM_LABEL("Up Vector", "vUpVector") WIDTH(1.5);
+   PARM(float, 3, "vUpVector", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(vUpVector.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+bOpInput2.gad = NULL { }
+
+fd_clippingsurface.gad = 
+
+GROUP simple "Clipping Surface" flat 
+{ 
+    VALUE(fd_clippingsurface.gad.val) LAYOUT(vertical) HSTRETCH 
+	    bClipSurface.gad;		
+	    vUpVector.gad;		
+} 
+
+fd_insidefaces.gad = 
+
+GROUP simple "Inside Faces" flat 
+{ 
+    VALUE(fd_insidefaces.gad.val) LAYOUT(vertical) HSTRETCH 
+	    bRemoveInside.gad;		
+	    fPrecision.gad;		
+	    fCleaningThreshold.gad;		
+} 
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    fd_insidefaces.gad; 
+    fd_clippingsurface.gad; 
+    bOpInput2.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

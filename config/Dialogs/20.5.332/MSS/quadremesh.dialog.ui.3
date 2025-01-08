@@ -1,0 +1,128 @@
+// Magic: 8cf5e195
+// Automatically generated PSI dialog (PSI version 20.5.332)
+// Fri Dec  6 15:02:22 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+showglobaltex.gad = ROW
+{
+    
+    {  }
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showglobaltex", "Global Parameter") toggle VALUE(showglobaltex.val);
+
+    {  }
+
+    {  }
+}
+
+showseams.gad = ROW
+{
+    
+    {  }
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showseams", "Seams") toggle VALUE(showseams.val);
+
+    {  }
+
+    {  }
+}
+
+showfieldsingularities.gad = ROW
+{
+    
+    {  }
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showfieldsingularities", "Field Singularities") toggle VALUE(showfieldsingularities.val);
+
+    {  }
+
+    {  }
+}
+
+showfacedirfield.gad = ROW
+{
+    
+    {  }
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showfacedirfield", "Field") toggle VALUE(showfacedirfield.val);
+
+    {  }
+
+    {  }
+}
+
+directionfieldscale.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   directionfieldscale.label = PARM_LABEL( "Field Scale", "directionfieldscale" ) ;
+   PARM(float, 1, "directionfieldscale", none, none) RANGE(0, 1)
+	LABELREF( directionfieldscale.label ) HSTRETCH;
+
+   {  }
+}
+
+showguidedirfield.gad = ROW
+{
+    
+    {  }
+
+    {  }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguidedirfield", "Guides") toggle VALUE(showguidedirfield.val);
+
+    {  }
+
+    {  }
+}
+
+guidefieldscale.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   guidefieldscale.label = PARM_LABEL( "Guide Scale", "guidefieldscale" ) ;
+   PARM(float, 1, "guidefieldscale", none, none) RANGE(0, 1)
+	LABELREF( guidefieldscale.label ) HSTRETCH;
+
+   {  }
+}
+
+# warning cpp warning: "GenV3/subdialog.top.ui":11 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":12 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":13 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(horizontal) SPACING(0.05) HSTRETCH JUSTIFY(left, center) UNSCALABLE
+    showglobaltex.gad; 
+    showseams.gad; 
+    showfieldsingularities.gad; 
+    showfacedirfield.gad; 
+    directionfieldscale.gad; 
+    showguidedirfield.gad; 
+    guidefieldscale.gad; 
+} 
+// dialog.bot.ui
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) VALUE(open.val_) HSTRETCH
+
+    dialog_norm.gad;
+}
