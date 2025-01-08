@@ -1,0 +1,261 @@
+// Magic: b0a047b4
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Mon Dec 23 18:02:06 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+showguide.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide", "Show Guide") toggle VALUE(showguide.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_reselect" VALUE(group.script_action)
+	HELP("Select geometry from an available viewport.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+camera.gad = 
+{
+ LAYOUT(horizontal) HSTRETCH JUSTIFY(left,center)
+ { WIDTH(0.18) }
+
+ camera.label = PARM_LABEL("Camera", "camera") WIDTH(1.5);
+ PARM_FIELD(pathstring, "camera") VALUE(camera.val) 
+	LABELREF(camera.label) HSTRETCH;
+
+ ACTION_ICONBUTTON "BUTTONS_jump" VALUE(camera.jump)
+    HELP("Jump to operator\nCtrl+LMB: Open parameters popup dialog")
+    UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+ ACTION_ICONBUTTON "BUTTONS_chooser_node" VALUE(camera.plus)
+    HELP("Open floating operator chooser") UI_FLAT_ICON_BTN_SIZE_SMALL 
+    LOOKFLAT;
+
+ { WIDTH(0.1) }
+}
+
+cam_near_far.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cam_near_far", "Near/Far Clipping Planes from Camera") toggle VALUE(cam_near_far.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+cullnearclip.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ cullnearclip.label = PARM_LABEL("Near Clip Distance", "cullnearclip") WIDTH(1.5);
+ PARM(float, 1, "cullnearclip", none, none) RANGE(0,10)
+	 LABELREF(cullnearclip.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+cullfarclip.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ cullfarclip.label = PARM_LABEL("Far Clip Distance", "cullfarclip") WIDTH(1.5);
+ PARM(float, 1, "cullfarclip", none, none) RANGE(0,10)
+	 LABELREF(cullfarclip.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+cull.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cull", "Enable Camera Frustum Culling") toggle VALUE(cull.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+cullmargin.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ cullmargin.label = PARM_LABEL("Cull Margin", "cullmargin") WIDTH(1.5);
+ PARM(float, 1, "cullmargin", none, none) RANGE(0,1)
+	 LABELREF(cullmargin.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+use_frame_range.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("use_frame_range", "Use Entire Frame Range") toggle VALUE(use_frame_range.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+r.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   r.label = PARM_LABEL("Start/End/Inc", "r") WIDTH(1.5);
+   PARM(float, 3, "r", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(r.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+smartcull.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("smartcull", "Cull based on connectivity (slower)") toggle VALUE(smartcull.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+clip.gad = NULL { }
+
+cull_occ.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("cull_occ", "Enable Occlusion Culling (Against 2nd Input Geo)") toggle VALUE(cull_occ.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+del_backfacing.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("del_backfacing", "Remove Backfacing Primitives") toggle VALUE(del_backfacing.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+folder2.gad = 
+
+GROUP simple "Occlusion Culling" flat 
+{ 
+    VALUE(folder2.gad.val) LAYOUT(vertical) HSTRETCH 
+	    cull_occ.gad;		
+	    del_backfacing.gad;		
+} 
+
+folder1.gad = 
+
+GROUP simple "Frustum Culling" flat 
+{ 
+    VALUE(folder1.gad.val) LAYOUT(vertical) HSTRETCH 
+	    cull.gad;		
+	    cullmargin.gad;		
+	    use_frame_range.gad;		
+	    r.gad;		
+	    smartcull.gad;		
+	    clip.gad;		
+} 
+
+folder0.gad = 
+
+GROUP simple "Camera Settings" flat 
+{ 
+    VALUE(folder0.gad.val) LAYOUT(vertical) HSTRETCH 
+	    camera.gad;		
+	    cam_near_far.gad;		
+	    cullnearclip.gad;		
+	    cullfarclip.gad;		
+} 
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    showguide.gad; 
+    group.gad; 
+    folder0.gad; 
+    folder1.gad; 
+    folder2.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

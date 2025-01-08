@@ -1,0 +1,56 @@
+// Magic: 527672ef
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Wed Nov  6 16:38:05 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+offset.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ offset.label = PARM_LABEL("offset", "offset") WIDTH(1.5);
+ PARM(float, 1, "offset", none, none) RANGE(-10,10)
+	 LABELREF(offset.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+keepOriginal.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("keepOriginal", "Keep Original") toggle VALUE(keepOriginal.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+# warning cpp warning: "GenV3/subdialog.top.ui":5 Macro "PARMSPACING" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":6 Macro "LAYOUTDIR" redefined.  Using later definition
+# warning cpp warning: "GenV3/subdialog.top.ui":7 Macro "DO_JUSTIFY" redefined.  Using later definition
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    offset.gad; 
+    keepOriginal.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

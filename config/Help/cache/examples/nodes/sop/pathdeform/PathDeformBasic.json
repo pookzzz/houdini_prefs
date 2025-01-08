@@ -1,0 +1,1 @@
+{"type": "root", "attrs": {"type": "example"}, "body": [{"type": "title", "indent": 0, "text": ["PathDeformBasic"]}, {"type": "para", "indent": 0, "text": ["This example shows how to deform a squab on the curve and make its claws rigid."], "extent": [0, 80]}], "examplefor": "/nodes/sop/pathdeform", "examplefile": "/examples/nodes/sop/pathdeform/PathDeformBasic.hda"}

@@ -1,7 +1,7 @@
 {
     "env": [
         {
-            "MOPS": "/Users/bytedance/workspace/houdiniPlugins/MOPS"
+            "MOPS": "D:/Workspace/repo/houdiniPlugins/MOPS"
         },
         {
             "HOUDINI_OTLSCAN_PATH": "$MOPS/otls;@/otls"
@@ -10,7 +10,7 @@
             "HOUDINI_TOOLBAR_PATH": "$MOPS/toolbar;@/toolbar"
         },
         {
-            "HOUDINI_PATH":"$MOPS"
+            "HOUDINI_PATH": "$MOPS"
         }
     ]
 }

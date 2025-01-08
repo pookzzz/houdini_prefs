@@ -1,0 +1,1 @@
+{"type": "root", "attrs": {"type": "example"}, "body": [{"type": "title", "indent": 0, "text": ["FlounderBend"]}, {"type": "para", "indent": 0, "text": ["This example demonstrates how to use the new \nBend node to bend a flounder."], "extent": [0, 77]}], "examplefor": "/nodes/sop/bend", "examplefile": "/examples/nodes/sop/bend/FlounderBend.otl"}

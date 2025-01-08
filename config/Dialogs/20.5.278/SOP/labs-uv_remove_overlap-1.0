@@ -1,0 +1,195 @@
+// Magic: a6dcff6c
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Mon Nov  4 15:25:00 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+uvattrib.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    uvattrib.label = PARM_LABEL("UV Attribute", "uvattrib") WIDTH(1.5);
+    PARM_FIELD(string, "uvattrib") VALUE(uvattrib.val) 
+	LABELREF(uvattrib.label) HSTRETCH;
+
+    uvattrib.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+detectres.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+detectres.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ detectres.label = PARM_LABEL("Detection Resolution", "detectres") WIDTH(1.5);
+ PARM(integer, 1, "detectres", none, none) RANGE(128,16384)
+	 LABELREF(detectres.label) HSTRETCH;
+
+  {  }
+}
+
+resmenu.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center)
+    {  }
+
+    resmenu.menu LOOK(menuiconbutton) SIZE(0.26, 0.26);
+
+}
+}	// Template join.bot
+
+sepparm2.gad = NULL { }
+
+creategroup.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("creategroup", "Create Group from Detected Overlaps") toggle VALUE(creategroup.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+groupname.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    groupname.label = PARM_LABEL("Group Name", "groupname") WIDTH(1.5);
+    PARM_FIELD(string, "groupname") VALUE(groupname.val) 
+	LABELREF(groupname.label) HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+sepparm.gad = 
+
+{
+    LAYOUT(vertical) HSTRETCH HMARGIN(0.18, 0.1)
+    NO_MARGIN_SPACING_SCALE
+
+    { HEIGHT(0.1) }
+    SEPARATOR;
+    { HEIGHT(0.1) }
+}
+
+repairoverlaps.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("repairoverlaps", "Repair Overlaps") toggle VALUE(repairoverlaps.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+guide.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+guide.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+guide.gad = PARM_BUTTON("guide", "") toggle VALUE(guide.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+guidepos.gad = ROW
+{
+   HSTRETCH
+   {  }
+
+   guidepos.label = PARM_LABEL("Guide Position", "guidepos") WIDTH(1.32);
+   PARM(float, 3, "guidepos", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(guidepos.label)
+	HSTRETCH;
+
+    {  }
+}
+}	
+}	// Template join.bot
+
+
+guidescale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ guidescale.label = PARM_LABEL("Guide Scale", "guidescale") WIDTH(1.5);
+ PARM(float, 1, "guidescale", none, none) RANGE(0,10)
+	LOCK_RANGE_MIN LABELREF(guidescale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+displayorigoverlap.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("displayorigoverlap", "Display Overlaps in Original UVs") toggle VALUE(displayorigoverlap.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fd_guide.gad = 
+
+{
+    VALUE(fd_guide.gad.val) LAYOUT(vertical) HSTRETCH SPACING(0.02)
+	    guide.row.join;		
+	    guidescale.gad;		
+	    displayorigoverlap.gad;		
+} 
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    uvattrib.gad; 
+    detectres.row.join; 
+    sepparm2.gad; 
+    creategroup.gad; 
+    groupname.gad; 
+    sepparm.gad; 
+    repairoverlaps.gad; 
+    fd_guide.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

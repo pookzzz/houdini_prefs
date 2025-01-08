@@ -1,0 +1,291 @@
+// Magic: 52095374
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Tue Oct 22 14:58:15 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+npages.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ npages.label = PARM_LABEL("Number Of Pages", "npages") WIDTH(1.5);
+ PARM(integer, 1, "npages", none, none) RANGE(2,100)
+	LOCK_RANGE_MIN LABELREF(npages.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+thickness.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ thickness.label = PARM_LABEL("Book Thickness", "thickness") WIDTH(1.5);
+ PARM(float, 1, "thickness", none, none) RANGE(0,1)
+	 LABELREF(thickness.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+pageheight.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ pageheight.label = PARM_LABEL("Page Height", "pageheight") WIDTH(1.5);
+ PARM(float, 1, "pageheight", none, none) RANGE(0,10)
+	 LABELREF(pageheight.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+shape.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ shape.label = PARM_LABEL("Shape", "shape") WIDTH(1.5);
+ PARM(float, 1, "shape", none, none) RANGE(0,1)
+	 LABELREF(shape.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+root.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("root", "Show Root") toggle VALUE(root.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+pages.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("pages", "Show Pages") toggle VALUE(pages.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+rimbender.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ rimbender.label = PARM_LABEL("rimbender", "rimbender") WIDTH(1.5);
+ PARM(float, 1, "rimbender", none, none) RANGE(5,150)
+	 LABELREF(rimbender.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+openbook.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ openbook.label = PARM_LABEL("Open Book", "openbook") WIDTH(1.5);
+ PARM(float, 1, "openbook", none, none) RANGE(0,1)
+	LOCK_RANGE LABELREF(openbook.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+turnpage.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ turnpage.label = PARM_LABEL("Turn Pages", "turnpage") WIDTH(1.5);
+ PARM(float, 1, "turnpage", none, none) RANGE(0,1)
+	 LABELREF(turnpage.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+falloff.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ falloff.label = PARM_LABEL("Falloff Pages", "falloff") WIDTH(1.5);
+ PARM(float, 1, "falloff", none, none) RANGE(0,1)
+	 LABELREF(falloff.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+interval.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ interval.label = PARM_LABEL("Pages Interval", "interval") WIDTH(1.5);
+ PARM(float, 1, "interval", none, none) RANGE(0,1)
+	 LABELREF(interval.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+seed.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ seed.label = PARM_LABEL("Seed", "seed") WIDTH(1.5);
+ PARM(float, 1, "seed", none, none) RANGE(0,100)
+	 LABELREF(seed.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+falloff_rand.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ falloff_rand.label = PARM_LABEL("Falloff Variation", "falloff_rand") WIDTH(1.5);
+ PARM(float, 1, "falloff_rand", none, none) RANGE(0,1)
+	 LABELREF(falloff_rand.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+twist.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ twist.label = PARM_LABEL("Twist", "twist") WIDTH(1.5);
+ PARM(float, 1, "twist", none, none) RANGE(0,1)
+	 LABELREF(twist.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+dosegs.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dosegs", "Maximum Segments") toggle VALUE(dosegs.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+segs.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ segs.label = PARM_LABEL("Segments", "segs") WIDTH(1.5);
+ PARM(integer, 1, "segs", none, none) RANGE(1,50)
+	LOCK_RANGE_MIN LABELREF(segs.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+folder0.gad = 
+{
+    LAYOUT(vertical) HSTRETCH
+
+    TABDIALOG2 flat "folder0.gad"
+    { 
+	VALUE(folder0.gad.val) STRETCH(1,0)
+
+	TAB "Pages Animation"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    openbook.gad;		
+	    turnpage.gad;		
+	    falloff.gad;		
+	    interval.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Pages Variations"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    seed.gad;		
+	    falloff_rand.gad;		
+	    twist.gad;		
+
+	    { STRETCH(1,1) }
+	}
+
+	TAB "Speed Up"
+	{
+	    LAYOUT(vertical) STRETCH
+
+            HMARGIN(0) VMARGIN(2p) SPACING(0, 2p)
+	    dosegs.gad;		
+	    segs.gad;		
+
+	    { STRETCH(1,1) }
+	}
+    } 
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    npages.gad; 
+    thickness.gad; 
+    pageheight.gad; 
+    shape.gad; 
+    root.gad; 
+    pages.gad; 
+    rimbender.gad; 
+    folder0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

@@ -1,0 +1,191 @@
+// Magic: c7ec0096
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Oct 24 21:08:12 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+Pages.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Pages.label = PARM_LABEL("Pages", "Pages") WIDTH(1.5);
+ PARM(integer, 1, "Pages", none, none) RANGE(2,50)
+	LOCK_RANGE_MIN LABELREF(Pages.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Page_thickness.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Page_thickness.label = PARM_LABEL("Page_thickness", "Page_thickness") WIDTH(1.5);
+ PARM(float, 1, "Page_thickness", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(Page_thickness.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Turn_limit.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Turn_limit.label = PARM_LABEL("Turn_limit", "Turn_limit") WIDTH(1.5);
+ PARM(float, 1, "Turn_limit", none, none) RANGE(0,90)
+	LOCK_RANGE LABELREF(Turn_limit.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Turn.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Turn.label = PARM_LABEL("Turn", "Turn") WIDTH(1.5);
+ PARM(float, 1, "Turn", none, none) RANGE(0,100)
+	 LABELREF(Turn.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Blend.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Blend.label = PARM_LABEL("Blend", "Blend") WIDTH(1.5);
+ PARM(float, 1, "Blend", none, none) RANGE(0,10)
+	 LABELREF(Blend.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Deformation_Mag.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Deformation_Mag.label = PARM_LABEL("Deformation_Mag", "Deformation_Mag") WIDTH(1.5);
+ PARM(float, 1, "Deformation_Mag", none, none) RANGE(0,10)
+	 LABELREF(Deformation_Mag.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Deformation_angle.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Deformation_angle.label = PARM_LABEL("Deformation_angle", "Deformation_angle") WIDTH(1.5);
+ PARM(float, 1, "Deformation_angle", none, none) RANGE(0,60)
+	 LABELREF(Deformation_angle.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Page_Subdivide.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Page_Subdivide.label = PARM_LABEL("Page_Subdivide", "Page_Subdivide") WIDTH(1.5);
+ PARM(integer, 1, "Page_Subdivide", none, none) RANGE(0,10)
+	 LABELREF(Page_Subdivide.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Page_size.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   Page_size.label = PARM_LABEL("Page_size", "Page_size") WIDTH(1.5);
+   PARM(float, 2, "Page_size", none, none, "X,Y")
+	RANGE(-1,1)  LABELREF(Page_size.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+Page_Rows.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Page_Rows.label = PARM_LABEL("Page_Rows", "Page_Rows") WIDTH(1.5);
+ PARM(integer, 1, "Page_Rows", none, none) RANGE(0,50)
+	 LABELREF(Page_Rows.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Page_Columns.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Page_Columns.label = PARM_LABEL("Page_Columns", "Page_Columns") WIDTH(1.5);
+ PARM(integer, 1, "Page_Columns", none, none) RANGE(0,50)
+	 LABELREF(Page_Columns.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+Cover_scale.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ Cover_scale.label = PARM_LABEL("Cover_scale", "Cover_scale") WIDTH(1.5);
+ PARM(float, 1, "Cover_scale", none, none) RANGE(0,10)
+	 LABELREF(Cover_scale.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    Pages.gad; 
+    Page_thickness.gad; 
+    Turn_limit.gad; 
+    Turn.gad; 
+    Blend.gad; 
+    Deformation_Mag.gad; 
+    Deformation_angle.gad; 
+    Page_Subdivide.gad; 
+    Page_size.gad; 
+    Page_Rows.gad; 
+    Page_Columns.gad; 
+    Cover_scale.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

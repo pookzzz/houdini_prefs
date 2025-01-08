@@ -1,0 +1,256 @@
+// Magic: 3d97b14f
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Thu Nov 21 12:05:59 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+group.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    group.label = PARM_LABEL("Group", "group") WIDTH(1.5);
+    PARM_FIELD(string, "group") VALUE(group.val) 
+	LABELREF(group.label) HSTRETCH;
+
+    group.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    ACTION_ICONBUTTON "BUTTONS_reselect" VALUE(group.script_action)
+	HELP("Select geometry from an available viewport.\nShift-click to turn on Select Groups.")
+	UI_FLAT_ICON_BTN_SIZE_SMALL LOOKFLAT;
+
+    { WIDTH(0.1) }
+}
+
+vtxdel.gad = ROW
+{
+    HSTRETCH JUSTIFY(left, center)
+
+    { WIDTH(0.18) }
+
+    vtxdel.label = PARM_LABEL("UV Attribute", "vtxdel") WIDTH(1.5);
+    PARM_FIELD(string, "vtxdel") VALUE(vtxdel.val) 
+	LABELREF(vtxdel.label) HSTRETCH;
+
+    vtxdel.menu SIZE(0.26, 0.26) LOOK(menuiconbutton);
+
+    { WIDTH(0.1) }
+}
+mode.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+
+mode.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) 
+    {  }
+
+    mode.label = PARM_LABEL_SIMPLE("Removal Mode", "mode") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    mode.menu;
+
+    {  }
+
+    {  }
+}
+
+iterations.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ iterations.label = PARM_LABEL("Iterations", "iterations") ;
+ PARM(integer, 1, "iterations", none, none) RANGE(1,100)
+	 LABELREF(iterations.label) HSTRETCH;
+
+  {  }
+}
+}	// Template join.bot
+
+
+usecluster.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("usecluster", "Use Distortion Averages") toggle VALUE(usecluster.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+solvestretching.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+solvestretching.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+solvestretching.gad = PARM_BUTTON("solvestretching", "") toggle VALUE(solvestretching.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+maxnegdist.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ maxnegdist.label = PARM_LABEL("Max Stretch", "maxnegdist") WIDTH(1.32);
+ PARM(float, 1, "maxnegdist", none, none) RANGE(-1,0)
+	LOCK_RANGE_MAX LABELREF(maxnegdist.label) HSTRETCH;
+
+  {  }
+}
+}	
+}	// Template join.bot
+
+solvesquashing.row.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0.18, 0.1) NO_MARGIN_SPACING_SCALE
+solvesquashing.join =		
+{
+
+  LAYOUT(horizontal) HSTRETCH JUSTIFY(left, center)
+  HMARGIN(0, 0) NO_MARGIN_SPACING_SCALE
+
+solvesquashing.gad = PARM_BUTTON("solvesquashing", "") toggle VALUE(solvesquashing.val) RETAIN_SIZE_WHEN_HIDDEN;
+
+maxposdist.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ {  }
+
+ maxposdist.label = PARM_LABEL("Max Squash", "maxposdist") WIDTH(1.32);
+ PARM(float, 1, "maxposdist", none, none) RANGE(0,1)
+	LOCK_RANGE_MIN LABELREF(maxposdist.label) HSTRETCH;
+
+  {  }
+}
+}	
+}	// Template join.bot
+
+
+visualizedistortion.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("visualizedistortion", "Visualize Distortion") toggle VALUE(visualizedistortion.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+regressionmetric.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    regressionmetric.label = PARM_LABEL_SIMPLE("Regression Metric", "regressionmetric") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    regressionmetric.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+discardregressions.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("discardregressions", "Discard Regressions") toggle VALUE(discardregressions.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+flattenmethod.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    flattenmethod.label = PARM_LABEL_SIMPLE("Flattening Method", "flattenmethod") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    flattenmethod.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+douvlayout.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("douvlayout", "UV Layout") toggle VALUE(douvlayout.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+fd_advanced.gad = 
+GROUP collapsible "Advanced" flat   
+{
+    VALUE(fd_advanced.gad.val) LAYOUT(vertical) HSTRETCH
+	    regressionmetric.gad;		
+	    discardregressions.gad;		
+	    flattenmethod.gad;		
+	    douvlayout.gad;		
+} 
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    group.gad; 
+    vtxdel.gad; 
+    mode.row.join; 
+    usecluster.gad; 
+    solvestretching.row.join; 
+    solvesquashing.row.join; 
+    visualizedistortion.gad; 
+    fd_advanced.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

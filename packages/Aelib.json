@@ -1,14 +1,14 @@
 {
-	"env": [
-		{
-			"AELIB": "/Users/bytedance/workspace/houdiniPlugins/Aelib"
-		},
-		{
-			"AOTL": "$AELIB/otls"
-		},
-		{
-			"HOUDINI_OTLSCAN_PATH": "$AOTL;$HOUDINI_OTLSCAN_PATH"
-		}
-	],
-	"path": "$AELIB"
+    "env": [
+        {
+            "AELIB": "D:/Workspace/repo/houdiniPlugins/Aelib"
+        },
+        {
+            "AOTL": "$AELIB/otls"
+        },
+        {
+            "HOUDINI_OTLSCAN_PATH": "$AOTL;$HOUDINI_OTLSCAN_PATH"
+        }
+    ],
+    "path": "$AELIB"
 }

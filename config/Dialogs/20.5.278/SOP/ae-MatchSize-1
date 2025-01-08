@@ -1,0 +1,213 @@
+// Magic: c1451b6f
+// Automatically generated PSI dialog (PSI version 20.5.278)
+// Fri Nov 22 15:31:56 2024
+
+
+f_tmp = FLOAT_FIELD;	// dialog.top.ui
+
+showguide.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("showguide", "Show Guide") toggle VALUE(showguide.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+size.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   size.label = PARM_LABEL("Size", "size") WIDTH(1.5);
+   PARM(float, 3, "size", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(size.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+t.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   t.label = PARM_LABEL("Center", "t") WIDTH(1.5);
+   PARM(float, 3, "t", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(t.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+dotranslate.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("dotranslate", "Do Translate") toggle VALUE(dotranslate.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+doscale.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("doscale", "Do Scale") toggle VALUE(doscale.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+padding.gad = 
+{
+
+ LAYOUT(horizontal) HSTRETCH
+ { WIDTH(0.18) }
+
+ padding.label = PARM_LABEL("Padding", "padding") WIDTH(1.5);
+ PARM(float, 1, "padding", none, none) RANGE(0,1)
+	 LABELREF(padding.label) HSTRETCH;
+
+  { WIDTH(0.1) }
+}
+
+prop.gad = 
+{
+    LAYOUT(horizontal) JUSTIFY(left, center) HSTRETCH
+    { WIDTH(0.18) }
+
+    prop.label = PARM_LABEL_SIMPLE("Proportional Resize", "prop") WIDTH(1.5);
+    { WIDTH(0.09) }
+
+    prop.menu;
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+scx.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("scx", "X") toggle VALUE(scx.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+scy.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("scy", "Y") toggle VALUE(scy.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+scz.gad = ROW
+{
+    HSTRETCH
+    { WIDTH(0.18) }
+
+    { WIDTH(1.5) }
+    { WIDTH(0.08) }
+
+    PARM_BUTTON("scz", "Z") toggle VALUE(scz.val);
+
+    { HSTRETCH }
+
+    { WIDTH(0.1) }
+}
+
+prev_sc.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   prev_sc.label = PARM_LABEL("Preview scale", "prev_sc") WIDTH(1.5);
+   PARM(float, 3, "prev_sc", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(prev_sc.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+prev_tr.gad = ROW
+{
+   HSTRETCH
+   { WIDTH(0.18) }
+
+   prev_tr.label = PARM_LABEL("Preview translate", "prev_tr") WIDTH(1.5);
+   PARM(float, 3, "prev_tr", none, none, "X,Y,Z")
+	RANGE(-1,1)  LABELREF(prev_tr.label)
+	HSTRETCH;
+
+    { WIDTH(0.1) }
+}
+
+folder0.gad = 
+
+GROUP simple "Preview" flat 
+{ 
+    VALUE(folder0.gad.val) LAYOUT(vertical) HSTRETCH 
+	    prev_sc.gad;		
+	    prev_tr.gad;		
+} 
+
+dialog_norm.gad = 
+{
+    LAYOUT(vertical) SPACING(0.02) HSTRETCH 
+    showguide.gad; 
+    size.gad; 
+    t.gad; 
+    dotranslate.gad; 
+    doscale.gad; 
+    padding.gad; 
+    prop.gad; 
+    scx.gad; 
+    scy.gad; 
+    scz.gad; 
+    folder0.gad; 
+} 
+// dialog.bot.ui
+
+extrastuffstowbar_minimize.val := 1;
+
+dialog = OPENNOTIFIER
+{
+    LAYOUT(vertical) SPACING(0.02) LOOK(bg) VALUE(open.val_) HSTRETCH
+
+    { HEIGHT(1p) LOOK(bg) HSTRETCH }
+
+    dialog_norm.gad;
+}

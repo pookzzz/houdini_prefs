@@ -1,19 +1,16 @@
 {
     "path": "$HPro",
-    "env": 
-    [
-          {
-              "HPro": "/Users/bytedance/workspace/houdiniPlugins/HOUDINI_HPro"
-          },
-          {
-              "PATH": 
-              {
-                  "method": "prepend",
-                  "value": 
-                  [
-                      "$HPro/bin"
-                  ]
-              }
-          }
-      ]
-  }
+    "env": [
+        {
+            "HPro": "D:/Workspace/repo/houdiniPlugins/HOUDINI_HPro"
+        },
+        {
+            "PATH": {
+                "method": "prepend",
+                "value": [
+                    "$HPro/bin"
+                ]
+            }
+        }
+    ]
+}
